@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\entity.cpp">
+      <Filter>src\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\imgui_impl_glfw_gl3.cpp">
+      <Filter>src\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\input.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scene.cpp">
+      <Filter>src\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shader.cpp">
+      <Filter>src\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\window.cpp">
+      <Filter>src\window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\component.cpp">
+      <Filter>src\entity\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mesh.cpp">
+      <Filter>src\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mesh_render.cpp">
+      <Filter>src\entity\component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\resource_manager.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\entity.h">
+      <Filter>src\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\factory.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\imgui_impl_glfw_gl3.h">
+      <Filter>src\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="src\input.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\scene.h">
+      <Filter>src\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\shader.h">
+      <Filter>src\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\window.h">
+      <Filter>src\window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vec.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\component.h">
+      <Filter>src\entity\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mesh.h">
+      <Filter>src\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mesh_render.h">
+      <Filter>src\entity\component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\resource_manager.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{babd7b7b-dc5a-46f7-8f58-180927493eef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\graphic">
+      <UniqueIdentifier>{b3daa2d2-d06e-4990-8e16-f0d6d470e0ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\lib">
+      <UniqueIdentifier>{3aea10b3-0c1d-4246-b7cf-91230f315743}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\window">
+      <UniqueIdentifier>{c2ee222d-7148-4c41-86a8-4d868bf04f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{dff73978-2aee-4e7e-a158-693a631bf766}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity">
+      <UniqueIdentifier>{fe696779-74cd-4895-8c69-5c78fbeb4a94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources">
+      <UniqueIdentifier>{7940ae73-8cf6-4079-962e-5991b5637ba1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity\component">
+      <UniqueIdentifier>{f58c763b-3b1a-4a83-99cb-db0d2e43405d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\configs\scenes\debugScene.json">
+      <Filter>resources</Filter>
+    </None>
+  </ItemGroup>
+</Project>

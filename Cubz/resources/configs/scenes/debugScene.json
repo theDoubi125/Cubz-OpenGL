@@ -1,0 +1,19 @@
+[
+  {
+    "name": "test",
+    "components": {
+      "Test": { },
+      "MeshRenderer": {
+        "mesh": "Test"
+      }
+    }
+  },
+	{"name": "lala",
+    "components": {
+      "Test": { }
+    }
+	},
+	{"name": "gna"},
+	{"name": "ukg"},
+	{"name": "sfsf"}
+]
