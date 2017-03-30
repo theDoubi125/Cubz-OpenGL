@@ -18,7 +18,7 @@ public:
 	void render();
 
 private:
-	void load(std::string path);
+	void load(const std::string& path);
 
 	GLuint m_vboId, m_vaoId;
 	vec2* m_vertex;

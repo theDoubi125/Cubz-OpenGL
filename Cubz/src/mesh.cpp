@@ -39,7 +39,16 @@ void Mesh::init(json descr)
 void Mesh::load(const std::string& path)
 {
 	std::ifstream file;
-	file.open(path["mesh"])
+	file.open(path);
+	std::string line;
+	while (getline(file, line))
+	{
+		if (line.size() > 0)
+		{
+
+		}
+	}
+	file.close();
 }
 
 void Mesh::render()

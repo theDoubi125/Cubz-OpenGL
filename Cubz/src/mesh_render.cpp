@@ -23,9 +23,9 @@ void MeshRenderer::registerMesh(const std::string& name, Mesh* mesh)
 
 void MeshRenderer::registerMeshes()
 {
-	Mesh* mesh = new Mesh();
-	mesh->init();
-	registerMesh("Test", mesh);
+	//Mesh* mesh = new Mesh();
+	//mesh->init();
+	//registerMesh("Test", mesh);
 }
 
 void MeshRenderer::init(json descr)
