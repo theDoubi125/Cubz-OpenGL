@@ -4,6 +4,9 @@
 #include "vec.h"
 #include "mesh.h"
 
+#define TINYOBJLOADER_IMPLEMENTATION
+#include <obj_loader\tiny_obj_loader.h>
+
 Mesh::Mesh()
 {
 
@@ -38,17 +41,12 @@ void Mesh::init(json descr)
 
 void Mesh::load(const std::string& path)
 {
-	std::ifstream file;
-	file.open(path);
-	std::string line;
-	while (getline(file, line))
-	{
-		if (line.size() > 0)
-		{
+	std::vector<tinyobj::shape_t> shapes;
+	std::vector<tinyobj::material_t> materials;
+	tinyobj::attrib_t attrib;
+	std::string err;
+	tinyobj::LoadObj(&attrib, &shapes, &materials, &err, path.c_str());
 
-		}
-	}
-	file.close();
 }
 
 void Mesh::render()

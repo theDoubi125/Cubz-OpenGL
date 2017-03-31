@@ -1,0 +1,30 @@
+﻿imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetWindowSize referenced in function "void __cdecl ImGui_ImplGlfwGL3_NewFrame(void)" (?ImGui_ImplGlfwGL3_NewFrame@@YAXXZ)
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetFramebufferSize referenced in function "void __cdecl ImGui_ImplGlfwGL3_NewFrame(void)" (?ImGui_ImplGlfwGL3_NewFrame@@YAXXZ)
+window.obj : error LNK2001: unresolved external symbol glfwGetFramebufferSize
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetWindowAttrib referenced in function "void __cdecl ImGui_ImplGlfwGL3_NewFrame(void)" (?ImGui_ImplGlfwGL3_NewFrame@@YAXXZ)
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwSetInputMode referenced in function "void __cdecl ImGui_ImplGlfwGL3_NewFrame(void)" (?ImGui_ImplGlfwGL3_NewFrame@@YAXXZ)
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetMouseButton referenced in function "void __cdecl ImGui_ImplGlfwGL3_NewFrame(void)" (?ImGui_ImplGlfwGL3_NewFrame@@YAXXZ)
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetCursorPos referenced in function "void __cdecl ImGui_ImplGlfwGL3_NewFrame(void)" (?ImGui_ImplGlfwGL3_NewFrame@@YAXXZ)
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwSetKeyCallback referenced in function "bool __cdecl ImGui_ImplGlfwGL3_Init(struct GLFWwindow *,bool)" (?ImGui_ImplGlfwGL3_Init@@YA_NPEAUGLFWwindow@@_N@Z)
+main.obj : error LNK2001: unresolved external symbol glfwSetKeyCallback
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwSetCharCallback referenced in function "bool __cdecl ImGui_ImplGlfwGL3_Init(struct GLFWwindow *,bool)" (?ImGui_ImplGlfwGL3_Init@@YA_NPEAUGLFWwindow@@_N@Z)
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwSetMouseButtonCallback referenced in function "bool __cdecl ImGui_ImplGlfwGL3_Init(struct GLFWwindow *,bool)" (?ImGui_ImplGlfwGL3_Init@@YA_NPEAUGLFWwindow@@_N@Z)
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwSetScrollCallback referenced in function "bool __cdecl ImGui_ImplGlfwGL3_Init(struct GLFWwindow *,bool)" (?ImGui_ImplGlfwGL3_Init@@YA_NPEAUGLFWwindow@@_N@Z)
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwSetClipboardString referenced in function "void __cdecl ImGui_ImplGlfwGL3_SetClipboardText(void *,char const *)" (?ImGui_ImplGlfwGL3_SetClipboardText@@YAXPEAXPEBD@Z)
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetClipboardString referenced in function "char const * __cdecl ImGui_ImplGlfwGL3_GetClipboardText(void *)" (?ImGui_ImplGlfwGL3_GetClipboardText@@YAPEBDPEAX@Z)
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetTime referenced in function "void __cdecl ImGui_ImplGlfwGL3_NewFrame(void)" (?ImGui_ImplGlfwGL3_NewFrame@@YAXXZ)
+main.obj : error LNK2001: unresolved external symbol glfwGetTime
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetWin32Window referenced in function "bool __cdecl ImGui_ImplGlfwGL3_Init(struct GLFWwindow *,bool)" (?ImGui_ImplGlfwGL3_Init@@YA_NPEAUGLFWwindow@@_N@Z)
+input.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function "public: void __cdecl Input::update(void)" (?update@Input@@QEAAXXZ)
+main.obj : error LNK2019: unresolved external symbol glfwInit referenced in function main
+main.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
+main.obj : error LNK2019: unresolved external symbol glfwSetErrorCallback referenced in function main
+main.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function main
+window.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function "public: void __cdecl Window::open(void)" (?open@Window@@QEAAXXZ)
+window.obj : error LNK2019: unresolved external symbol glfwDestroyWindow referenced in function "public: void __cdecl Window::close(void)" (?close@Window@@QEAAXXZ)
+window.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function "public: void __cdecl Window::update(float)" (?update@Window@@QEAAXM@Z)
+window.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function "public: void __cdecl Window::open(void)" (?open@Window@@QEAAXXZ)
+window.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function "public: void __cdecl Window::render(void)" (?render@Window@@QEAAXXZ)
+C:\Users\jrevel\Documents\Cubz-OpenGL\libs/glfw/lib\glfw3.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+C:\Users\jrevel\Documents\Cubz-OpenGL\libs/glfw/lib\glfw3dll.lib : warning LNK4272: library machine type 'X86' conflicts with target machine type 'x64'
+C:\Users\jrevel\Documents\Cubz-OpenGL\x64\Debug\Cubz.exe : fatal error LNK1120: 24 unresolved externals
