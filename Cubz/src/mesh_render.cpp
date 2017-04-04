@@ -16,11 +16,6 @@ MeshRenderer::~MeshRenderer()
 
 }
 
-void MeshRenderer::registerMesh(const std::string& name, Mesh* mesh)
-{
-	m_meshManager.registerResource(name, mesh);
-}
-
 void MeshRenderer::registerMeshes()
 {
 	//Mesh* mesh = new Mesh();
@@ -30,6 +25,12 @@ void MeshRenderer::registerMeshes()
 
 void MeshRenderer::init(json descr)
 {
+	if (!m_meshManager.hasResource(descr["mesh"]))
+	{
+		Mesh *mesh = new Mesh();
+		mesh->init(descr["mesh"]);
+		m_meshManager.registerResource(descr["mesh"], mesh);
+	}
 	m_mesh = m_meshManager.getResource(descr["mesh"]);
 }
 

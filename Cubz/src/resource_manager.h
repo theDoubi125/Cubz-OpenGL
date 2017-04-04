@@ -37,6 +37,12 @@ public:
 		return it->second;
 	}
 
+	bool hasResource(const std::string& name) const
+	{
+		auto it = m_resources.find(name);
+		return it != m_resources.end();
+	}
+
 private:
 	std::map<std::string, T*> m_resources;
 };

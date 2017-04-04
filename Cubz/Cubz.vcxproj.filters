@@ -103,5 +103,17 @@
     <None Include="resources\configs\scenes\debugScene.json">
       <Filter>resources</Filter>
     </None>
+    <None Include="resources\shaders\basique2D.frag">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\shaders\basique2D.vert">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\shaders\shader_base.frag">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\shaders\shader_base.vert">
+      <Filter>resources</Filter>
+    </None>
   </ItemGroup>
 </Project>

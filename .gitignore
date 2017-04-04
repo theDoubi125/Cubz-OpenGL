@@ -3,4 +3,4 @@
 *.opendb
 *.idb
 *.exe
-*.obj
+*/Debug/*

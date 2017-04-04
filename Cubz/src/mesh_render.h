@@ -27,7 +27,6 @@ public:
 		return "MeshRenderer";
 	}
 
-	static void registerMesh(const std::string& name, Mesh* mesh);
 	static void registerMeshes();
 
 private:
