@@ -149,10 +149,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\configs\scenes\debugScene.json" />
+    <None Include="resources\meshes\cube.mtl" />
     <None Include="resources\shaders\basique2D.frag" />
     <None Include="resources\shaders\basique2D.vert" />
     <None Include="resources\shaders\shader_base.frag" />
     <None Include="resources\shaders\shader_base.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="resources\meshes\cube.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
