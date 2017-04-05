@@ -34,6 +34,9 @@
     <ClCompile Include="src\resource_manager.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="src\transform.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entity.h">
@@ -70,6 +73,9 @@
       <Filter>src\entity\component</Filter>
     </ClInclude>
     <ClInclude Include="src\resource_manager.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\transform.h">
       <Filter>src\util</Filter>
     </ClInclude>
   </ItemGroup>

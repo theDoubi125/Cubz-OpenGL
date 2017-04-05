@@ -131,6 +131,7 @@
     <ClCompile Include="src\resource_manager.cpp" />
     <ClCompile Include="src\scene.cpp" />
     <ClCompile Include="src\shader.cpp" />
+    <ClCompile Include="src\transform.cpp" />
     <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +145,7 @@
     <ClInclude Include="src\resource_manager.h" />
     <ClInclude Include="src\scene.h" />
     <ClInclude Include="src\shader.h" />
+    <ClInclude Include="src\transform.h" />
     <ClInclude Include="src\vec.h" />
     <ClInclude Include="src\window.h" />
   </ItemGroup>
