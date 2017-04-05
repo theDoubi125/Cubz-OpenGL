@@ -37,20 +37,22 @@ void Transform::setRotation(const quat& rot)
 
 void Transform::setScale(float scale)
 {
-
+	m_scale = scale;
 }
 
 void Transform::translate(const vec3& vec)
 {
-
+	m_pos += vec;
 }
+
 void Transform::rotate(const quat& rot)
 {
-
+	m_rot *= rot;
 }
+
 void Transform::scale(float scale)
 {
-
+	m_scale *= scale;
 }
 
 void Transform::lookAt(const vec3& pos)
@@ -60,13 +62,15 @@ void Transform::lookAt(const vec3& pos)
 
 const vec3& Transform::position() const
 {
-
+	return m_pos;
 }
+
 const quat& Transform::rotation() const
 {
-
+	return m_rot;
 }
+
 const float Transform::scale() const
 {
-
+	return m_scale;
 }

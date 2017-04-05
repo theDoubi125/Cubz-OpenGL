@@ -4,6 +4,7 @@
 #include <json.hpp>
 #include "component.h"
 #include "factory.h"
+#include "transform.h"
 
 
 class Entity
@@ -30,10 +31,14 @@ public:
 	static void registerComponent(const std::string& name, Component* model);
 	static void registerComponents();
 
+	Transform& transform();
+	const Transform& transform() const;
+
 private:
 	std::string m_name;
 	std::map<std::string, Component*> m_components; 
 	static ComponentFactory m_componentFactory;
+	Transform m_transform;
 };
 
 #endif

@@ -136,3 +136,13 @@ Component* Entity::getComponent(const std::string& name)
 		return NULL;
 	else return it->second;
 }
+
+Transform& Entity::transform()
+{
+	return m_transform;
+}
+
+const Transform& Entity::transform() const
+{
+	return m_transform;
+}
