@@ -92,7 +92,10 @@ void Window::update(float deltaTime)
 	ImGui_ImplGlfwGL3_NewFrame();
 
 	m_scene->update(deltaTime);
-	m_scene->debugUI();
+	if (m_debugWindow)
+	{
+		m_scene->debugUI();
+	}
 		
 	if (glfwWindowShouldClose(m_window))
 		close();
@@ -139,11 +142,6 @@ void Window::render()
 		glBindVertexArray(0);
 	glDisableVertexAttribArray(0);*/
 
-
-	if (m_debugWindow)
-	{
-		ImGui::Text("Hello, world!");
-	}
 	/*
 	{
 		static float f = 0.0f;
