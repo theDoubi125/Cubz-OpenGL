@@ -5,3 +5,4 @@
 *.exe
 */Debug/*
 Cubz/x64/Debug/
+.vs/Cubz/v14/.suo
