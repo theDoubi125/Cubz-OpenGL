@@ -6,6 +6,7 @@
 #endif
 
 #include "vec.h"
+#include "shader.h"
 #include <json.hpp>
 
 class Mesh
@@ -23,6 +24,7 @@ private:
 	GLuint m_vboId, m_vaoId, m_elementBufferId;
 	vec3* m_vertex;
 	int m_vertexCount, m_indicesCount;
+	Shader* m_shader;
 };
 
 #endif MESH_INCLUDED

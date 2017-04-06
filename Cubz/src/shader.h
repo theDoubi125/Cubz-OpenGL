@@ -1,15 +1,20 @@
 #pragma once
 #include <string>
+#include <json.hpp>
+#include "resource_manager.h"
 #include "vec.h"
+
 class Shader
 {
 public:
 	Shader();
-	Shader(std::string const& vertexPath, std::string const& fragmentPath);
-	Shader(Shader const &model);
+	Shader(const std::string& vertexPath, const std::string& fragmentPath);
+	Shader(Shader const& model);
 	~Shader();
 	GLuint getProgramId() const;
 	void load();
+
+	static Shader* getShader(json descr);
 
 protected:
 	void compile(GLuint &shader, GLenum type, std::string const &source);
@@ -22,6 +27,8 @@ private:
 
 	std::string m_vertexPath;
 	std::string m_fragmentPath;
+
+	static ResourceManager<Shader> m_shaderManager;
 };
 
 class Texture

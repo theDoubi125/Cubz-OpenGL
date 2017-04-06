@@ -7,7 +7,7 @@
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <obj_loader\tiny_obj_loader.h>
 
-Mesh::Mesh()
+Mesh::Mesh() : m_shader(NULL)
 {
 
 }
@@ -19,12 +19,11 @@ Mesh::~Mesh()
 
 void Mesh::init(json descr)
 {
-
 	glGenBuffers(1, &m_vboId);
 	glGenBuffers(1, &m_elementBufferId);
 	glGenVertexArrays(1, &m_vaoId);
 
-	std::string path = descr;
+	std::string path = descr["obj"];
 	std::vector<tinyobj::shape_t> shapes;
 	std::vector<tinyobj::material_t> materials;
 	tinyobj::attrib_t attrib;
@@ -55,6 +54,8 @@ void Mesh::init(json descr)
 		glEnableVertexAttribArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+
+	m_shader = Shader::getShader(descr["shader"]);
 }
 
 void Mesh::load(const std::string& path)

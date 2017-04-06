@@ -4,15 +4,23 @@
     "components": {
       "Test": { },
       "MeshRenderer": {
-        "mesh": "meshes/cube.obj"
+        "mesh": {
+          "obj": "meshes/cube.obj",
+          "shader": {
+            "vertex": "resources/shaders/basique2D.vert", 
+            "fragment": "resources/shaders/basique2D.frag"
+          }
+        }
       }
     }
   },
-	{"name": "lala",
+  {
+    
+    "name": "lala",
     "components": {
       "Test": { }
     }
-	},
+  },
 	{"name": "gna"},
 	{"name": "ukg"},
 	{"name": "sfsf"}

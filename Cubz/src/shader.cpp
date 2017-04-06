@@ -6,6 +6,8 @@
 
 #include "shader.h"
 
+ResourceManager<Shader> Shader::m_shaderManager;
+
 Shader::Shader() : m_vertexId(0), m_fragmentId(0), m_programId(0), m_vertexPath(), m_fragmentPath()
 {
 }
@@ -154,4 +156,17 @@ void Texture::init(ivec2 dim)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+}
+
+Shader* Shader::getShader(json descr)
+{
+	std::string vertexPath = descr["vertex"];
+	std::string fragmentPath = descr["fragment"];
+	if (!m_shaderManager.hasResource(vertexPath + " " + fragmentPath))
+	{
+		Shader* shader = new Shader(vertexPath, fragmentPath);
+		shader->load();
+		m_shaderManager.registerResource(vertexPath + " " + fragmentPath, shader);
+	}
+	return m_shaderManager.getResource(vertexPath + " " + fragmentPath);
 }

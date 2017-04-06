@@ -25,6 +25,7 @@ void MeshRenderer::registerMeshes()
 
 void MeshRenderer::init(json descr)
 {
+	std::cout << descr.dump(0) << std::endl;
 	if (!m_meshManager.hasResource(descr["mesh"]))
 	{
 		Mesh *mesh = new Mesh();
