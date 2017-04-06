@@ -7,8 +7,8 @@
         "mesh": {
           "obj": "meshes/cube.obj",
           "shader": {
-            "vertex": "resources/shaders/basique2D.vert", 
-            "fragment": "resources/shaders/basique2D.frag"
+            "vertex": "resources/shaders/cube.vert", 
+            "fragment": "resources/shaders/cube.frag"
           }
         }
       }

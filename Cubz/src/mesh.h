@@ -16,12 +16,13 @@ public:
 	virtual ~Mesh();
 
 	void init(json descr);
-	void render();
+	void render(mat4 transformMatrix, mat4 projectionMatrix);
 
 private:
 	void load(const std::string& path);
 
 	GLuint m_vboId, m_vaoId, m_elementBufferId;
+	GLuint m_projectionAttrib, m_transformAttrib;
 	vec3* m_vertex;
 	int m_vertexCount, m_indicesCount;
 	Shader* m_shader;

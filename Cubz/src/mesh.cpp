@@ -1,5 +1,6 @@
 #include <glad.h>
 #include <fstream>
+#include <glm/gtc/type_ptr.hpp>
 
 #include "vec.h"
 #include "mesh.h"
@@ -33,18 +34,13 @@ void Mesh::init(json descr)
 	unsigned int indices[3] = { 0, 1, 2 };
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboId);
-		//glBufferData(GL_ARRAY_BUFFER, 4 * sizeof(float) * 3, 0, GL_STATIC_DRAW);
-		//glBufferSubData(GL_ARRAY_BUFFER, 0, 4 * sizeof(float) * 3, m_vertex);
 		glBufferData(GL_ARRAY_BUFFER, attrib.vertices.size() * sizeof(float) * 3, 0, GL_STATIC_DRAW);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, attrib.vertices.size() * sizeof(float) * 3, attrib.vertices.data());
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_elementBufferId);
-		//glBufferData(GL_ELEMENT_ARRAY_BUFFER, 3 * sizeof(unsigned int), indices, GL_STATIC_DRAW);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, shapes[0].mesh.indices.size() * sizeof(unsigned int), shapes[0].mesh.indices.data(), GL_STATIC_DRAW);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-
-	//glGenBuffers(1, &m_vboId);
 
 	m_vertexCount = shapes[0].mesh.indices.size();
 
@@ -56,6 +52,8 @@ void Mesh::init(json descr)
 	glBindVertexArray(0);
 
 	m_shader = Shader::getShader(descr["shader"]);
+	m_projectionAttrib = glGetUniformLocation(m_shader->getProgramId(), "projection");
+	m_transformAttrib = glGetUniformLocation(m_shader->getProgramId(), "transform");
 }
 
 void Mesh::load(const std::string& path)
@@ -63,12 +61,16 @@ void Mesh::load(const std::string& path)
 	
 }
 
-void Mesh::render()
+void Mesh::render(mat4 transformMatrix, mat4 projectionMatrix)
 {
+	glUseProgram(m_shader->getProgramId());
+	int shaderId = m_shader->getProgramId();
+	glUniformMatrix4fv(m_projectionAttrib, 1, GL_FALSE, value_ptr(projectionMatrix));
+	glUniformMatrix4fv(m_transformAttrib, 1, GL_FALSE, value_ptr(transformMatrix));
 	glBindVertexArray(m_vaoId);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_elementBufferId);
 	glDrawElements(GL_TRIANGLES, m_vertexCount, GL_UNSIGNED_INT, BUFFER_OFFSET(0));
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-	//glDrawArrays(GL_TRIANGLES, 0, 3);
 	glBindVertexArray(0);
+	glUseProgram(0);
 }

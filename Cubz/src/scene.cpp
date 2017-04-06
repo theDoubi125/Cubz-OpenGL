@@ -51,13 +51,11 @@ void Scene::debugUI()
 {
 	for (int i = 0; i < m_entities.size(); i++)
 	{
-		ImGui::BeginChild(("Entity" + std::to_string(i)).c_str(), ImVec2(0, 100), true);
 		if (ImGui::TreeNode(m_entities[i]->getName().c_str()))
 		{
 			m_entities[i]->debugUI();
 			ImGui::TreePop();
 		}
-		ImGui::EndChild();
 	}
 }
 

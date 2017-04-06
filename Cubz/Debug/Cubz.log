@@ -1,5 +1,7 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (GLFW Tests.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   mesh_render.cpp
-c:\users\jrevel\documents\cubz-opengl\cubz\src\mesh_render.h(27): warning C4172: returning address of local variable or temporary
-  Cubz.vcxproj -> C:\Users\jrevel\Documents\Cubz-OpenGL\Debug\Cubz.exe
-  Cubz.vcxproj -> C:\Users\jrevel\Documents\Cubz-OpenGL\Debug\Cubz.pdb (Partial PDB)
+  mesh.cpp
+  Génération de code en cours...
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\mesh_render.h(27): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
+  Cubz.vcxproj -> G:\Documents\Julien\Projets\C++\Cubz-OpenGL\Debug\Cubz.exe
+  Cubz.vcxproj -> G:\Documents\Julien\Projets\C++\Cubz-OpenGL\Debug\Cubz.pdb (Partial PDB)

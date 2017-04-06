@@ -25,7 +25,7 @@
 
 Window* Window::m_currentWindow(NULL);
 
-Window::Window(std::string title, ivec2 size) : m_size(size), m_title(title), m_window(NULL), m_isOpen(false), m_shader(NULL), m_scene(new Scene())
+Window::Window(std::string title, ivec2 size) : m_size(size), m_title(title), m_window(NULL), m_isOpen(false), m_scene(new Scene())
 {
 
 }
@@ -59,20 +59,6 @@ void Window::open()
 	json descr;
 	descrFile >> descr;
 	m_scene->init(descr);
-	float vertices[] = { 0.0, 0.0,  1, 0.0,   1, 1 };
-	glGenBuffers(1, &m_vboID);
-	glGenVertexArrays(1, &m_vaoID);
-	glBindBuffer(GL_ARRAY_BUFFER, m_vboID);
-		glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), 0, GL_STATIC_DRAW);
-		glBufferSubData(GL_ARRAY_BUFFER, 0, 6 * sizeof(float), vertices);
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	glBindVertexArray(m_vaoID);
-		glBindBuffer(GL_ARRAY_BUFFER, m_vboID);
-		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
-		glEnableVertexAttribArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
 }
 
 void Window::close()
@@ -124,16 +110,9 @@ void Window::render()
 	glViewport(0, 0, display_w, display_h);
 	glClearColor(0, 0, 0, 0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	if (m_shader == NULL)
-	{
-		m_shader = new Shader("resources/shaders/basique2D.vert", "resources/shaders/basique2D.frag");
-		m_shader->load();
-	}
-
-	glUseProgram(m_shader->getProgramId());
+	//glUseProgram(m_shader->getProgramId());
 	m_scene->render();
-	glUseProgram(0);
+	//glUseProgram(0);
 
 	/*	glBindVertexArray(m_vaoID);
 

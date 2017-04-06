@@ -6,13 +6,8 @@
 // Entrée Shader
 
 in vec3 in_Vertex;
-in vec2 in_texCoord;
 
-out vec2 texCoord;
-
-uniform mat4 modelMatrix;
-uniform mat4 viewMatrix;
-uniform mat4 projectionMatrix;
+uniform mat4 transform;
 
 
 // Fonction main
@@ -21,6 +16,5 @@ void main()
 {
     // Position finale du vertex
 
-    texCoord = in_texCoord;
-    gl_Position = projectionMatrix * viewMatrix * modelMatrix * vec4(in_Vertex, 1.0);
+    gl_Position = vec4(in_Vertex, 1.0);
 }

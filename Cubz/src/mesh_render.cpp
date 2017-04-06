@@ -1,8 +1,10 @@
 #include <glad.h>
 #include <GLFW\glfw3.h>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include "mesh.h"
 #include "mesh_render.h"
+#include "entity.h"
 
 MeshManager MeshRenderer::m_meshManager;
 
@@ -26,13 +28,14 @@ void MeshRenderer::registerMeshes()
 void MeshRenderer::init(json descr)
 {
 	std::cout << descr.dump(0) << std::endl;
-	if (!m_meshManager.hasResource(descr["mesh"]))
+	std::string resourceName = descr["mesh"]["obj"];
+	if (!m_meshManager.hasResource(resourceName))
 	{
 		Mesh *mesh = new Mesh();
 		mesh->init(descr["mesh"]);
-		m_meshManager.registerResource(descr["mesh"], mesh);
+		m_meshManager.registerResource(resourceName, mesh);
 	}
-	m_mesh = m_meshManager.getResource(descr["mesh"]);
+	m_mesh = m_meshManager.getResource(resourceName);
 }
 
 void MeshRenderer::start()
@@ -47,7 +50,8 @@ void MeshRenderer::update(float deltaTime)
 
 void MeshRenderer::render() const
 {
-	m_mesh->render();
+	mat4 projectionMatrix = perspective(70.0, (double)800 / 600, 1.0, 100.0);
+	m_mesh->render(m_entity->transform().transformMatrix(), projectionMatrix);
 }
 
 void MeshRenderer::debugUI()

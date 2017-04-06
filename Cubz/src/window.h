@@ -9,7 +9,6 @@
 class Input;
 struct GLFWwindow;
 class Scene;
-class Shader;
 
 class Window : InputListener
 {
@@ -37,9 +36,6 @@ private:
 	bool m_isOpen;
 	Scene* m_scene;
 
-	GLuint m_vboID;
-	GLuint m_vaoID;
-	Shader* m_shader;
 	static Window* m_currentWindow;
 
 	bool m_debugWindow;

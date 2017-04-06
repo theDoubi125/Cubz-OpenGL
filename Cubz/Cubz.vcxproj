@@ -151,8 +151,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\configs\scenes\debugScene.json" />
-    <None Include="resources\shaders\basique2D.frag" />
-    <None Include="resources\shaders\basique2D.vert" />
+    <None Include="resources\shaders\cube.frag" />
+    <None Include="resources\shaders\cube.vert" />
     <None Include="resources\shaders\shader_base.frag" />
     <None Include="resources\shaders\shader_base.vert" />
   </ItemGroup>
