@@ -22,7 +22,11 @@ Transform::~Transform()
 
 mat4 Transform::transformMatrix() const
 {
-	return toMat4(m_rot);
+	mat4 matrix = toMat4(m_rot);
+	matrix[3].x = m_pos.x;
+	matrix[3].y = m_pos.y;
+	matrix[3].z = m_pos.z;
+	return matrix;
 }
 
 void Transform::setPosition(const vec3& pos)
@@ -65,12 +69,27 @@ const vec3& Transform::position() const
 	return m_pos;
 }
 
+vec3& Transform::position()
+{
+	return m_pos;
+}
+
 const quat& Transform::rotation() const
 {
 	return m_rot;
 }
 
-const float Transform::scale() const
+quat& Transform::rotation()
+{
+	return m_rot;
+}
+
+const float& Transform::scale() const
+{
+	return m_scale;
+}
+
+float& Transform::scale()
 {
 	return m_scale;
 }

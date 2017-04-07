@@ -1,6 +1,14 @@
 [
   {
     "name": "test",
+    "transform": {
+      "pos": [ 2, 2, -10 ],
+      "rot": {
+        "axis": [ 0, 1, 0 ],
+        "angle": 1
+      },
+      "scale": 1
+    },
     "components": {
       "Test": { },
       "MeshRenderer": {

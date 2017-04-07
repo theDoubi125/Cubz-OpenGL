@@ -50,7 +50,7 @@ void MeshRenderer::update(float deltaTime)
 
 void MeshRenderer::render() const
 {
-	mat4 projectionMatrix = perspective(70.0, (double)800 / 600, 1.0, 100.0);
+	mat4 projectionMatrix = perspective(70.0, (double)800 / 600, 0.1, 100.0);
 	m_mesh->render(m_entity->transform().transformMatrix(), projectionMatrix);
 }
 

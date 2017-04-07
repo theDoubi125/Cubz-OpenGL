@@ -135,6 +135,7 @@
     <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="src\component.h" />
     <ClInclude Include="src\entity.h" />
     <ClInclude Include="src\factory.h" />
@@ -155,6 +156,14 @@
     <None Include="resources\shaders\cube.vert" />
     <None Include="resources\shaders\shader_base.frag" />
     <None Include="resources\shaders\shader_base.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\meshes\cube.obj">
+      <FileType>Document</FileType>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Cubz.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -25,7 +25,11 @@ public:
 
 	const vec3& position() const;
 	const quat& rotation() const;
-	const float scale() const;
+	const float& scale() const;
+
+	vec3& position();
+	quat& rotation();
+	float& scale();
 
 private:
 	vec3 m_pos;

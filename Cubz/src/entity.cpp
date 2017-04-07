@@ -44,6 +44,27 @@ void Entity::init(json descr)
 				addComponent(compIt.key(), *compIt);
 			}
 		}
+		else if (propertyName.compare("transform") == 0)
+		{
+			for (auto transfIt = it->begin(); transfIt != it->end(); transfIt++)
+			{
+				std::string compName = transfIt.key();
+				if (compName.compare("pos") == 0)
+				{
+					m_transform.position() = vec3(transfIt.value()[0], transfIt.value()[1], transfIt.value()[2]);
+				}
+				else if (compName.compare("rot") == 0)
+				{
+					float angle = transfIt.value()["angle"];
+					vec3 axis = vec3(transfIt.value()["axis"][0], transfIt.value()["axis"][1], transfIt.value()["axis"][2]);
+					m_transform.rotation() = angleAxis(angle, axis);
+				}
+				else if (compName.compare("scale") == 0)
+				{
+					m_transform.scale() = transfIt.value().get<float>();
+				}
+			}
+		}
 	}
 }
 
@@ -75,6 +96,17 @@ void Entity::debugUI()
 {
 	for (auto it = m_components.begin(); it != m_components.end(); it++)
 	{
+		if (ImGui::TreeNode("transform"))
+		{
+			if (ImGui::TreeNode("position"))
+			{
+				ImGui::SliderFloat("x", &(transform().position().x), -10, 10, "%.3f");
+				ImGui::SliderFloat("y", &(transform().position().y), -10, 10, "%.3f");
+				ImGui::SliderFloat("z", &(transform().position().z), -10, 10, "%.3f");
+				ImGui::TreePop();
+			}
+			ImGui::TreePop();
+		}
 		if (ImGui::TreeNode(it->first.c_str()))
 		{
 			it->second->debugUI();
@@ -106,6 +138,7 @@ void Entity::addComponent(const std::string& name, json descr)
 {
 	Component* component = m_componentFactory.createInstance(name);
 	component->init(descr);
+	component->setEntity(this);
 	m_components[name] = component;
 }
 

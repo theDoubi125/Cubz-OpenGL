@@ -34,8 +34,9 @@ void Mesh::init(json descr)
 	unsigned int indices[3] = { 0, 1, 2 };
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboId);
-		glBufferData(GL_ARRAY_BUFFER, attrib.vertices.size() * sizeof(float) * 3, 0, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, attrib.vertices.size() * sizeof(float) * 5, 0, GL_STATIC_DRAW);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, attrib.vertices.size() * sizeof(float) * 3, attrib.vertices.data());
+		glBufferSubData(GL_ARRAY_BUFFER, attrib.vertices.size() * sizeof(float) * 3, attrib.vertices.size() * sizeof(float) * 2, attrib.texcoords.data());
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_elementBufferId);
@@ -48,6 +49,8 @@ void Mesh::init(json descr)
 		glBindBuffer(GL_ARRAY_BUFFER, m_vboId);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 		glEnableVertexAttribArray(0);
+		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(attrib.vertices.size() * sizeof(float) * 3));
+		glEnableVertexAttribArray(1);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 

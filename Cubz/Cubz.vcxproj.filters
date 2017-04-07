@@ -78,6 +78,7 @@
     <ClInclude Include="src\transform.h">
       <Filter>src\util</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -121,5 +122,13 @@
     <None Include="resources\shaders\cube.vert">
       <Filter>resources</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Cubz.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\meshes\cube.obj">
+      <Filter>resources</Filter>
+    </Text>
   </ItemGroup>
 </Project>

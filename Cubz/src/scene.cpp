@@ -78,6 +78,7 @@ void Scene::removeEntity(Entity* entity)
 
 void Scene::render() const
 {
+	glEnable(GL_DEPTH_TEST);
 	for (int i = 0; i < m_entities.size(); i++)
 		m_entities[i]->render();
 }
