@@ -30,18 +30,23 @@ void Mesh::init(json descr)
 	tinyobj::attrib_t attrib;
 	std::string err;
 	tinyobj::LoadObj(&attrib, &shapes, &materials, &err, ("resources/" + path).c_str());
-	m_vertex = new vec3[4]{ vec3(0, 0, 0), vec3(1, 0, 0), vec3(1, 1, 0), vec3(0.5f, 0.5f, 0) };
-	unsigned int indices[3] = { 0, 1, 2 };
+	auto indices = shapes[0].mesh.indices;
+	m_vertexCount = indices.size();
+	m_vertex = new vec3[m_vertexCount];
+	m_uvs = new vec2[m_vertexCount];
+	for (int i = 0; i < m_vertexCount; i++)
+	{
+		int vertexId = 3*indices[i].vertex_index;
+		int uvId = 3 * indices[i].texcoord_index;
+		m_vertex[i] = vec3(attrib.vertices[vertexId], attrib.vertices[vertexId+1], attrib.vertices[vertexId+2]);
+		m_uvs[i] = vec2(attrib.vertices[uvId], attrib.vertices[uvId+1]);
+	}
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vboId);
-		glBufferData(GL_ARRAY_BUFFER, attrib.vertices.size() * sizeof(float) * 5, 0, GL_STATIC_DRAW);
-		glBufferSubData(GL_ARRAY_BUFFER, 0, attrib.vertices.size() * sizeof(float) * 3, attrib.vertices.data());
-		glBufferSubData(GL_ARRAY_BUFFER, attrib.vertices.size() * sizeof(float) * 3, attrib.vertices.size() * sizeof(float) * 2, attrib.texcoords.data());
+		glBufferData(GL_ARRAY_BUFFER, m_vertexCount * sizeof(float) * 5, 0, GL_STATIC_DRAW);
+		glBufferSubData(GL_ARRAY_BUFFER, 0, m_vertexCount * sizeof(float) * 3, m_vertex);
+		glBufferSubData(GL_ARRAY_BUFFER, m_vertexCount * sizeof(float) * 3, m_vertexCount * sizeof(float) * 2, m_uvs);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_elementBufferId);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, shapes[0].mesh.indices.size() * sizeof(unsigned int), shapes[0].mesh.indices.data(), GL_STATIC_DRAW);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	m_vertexCount = shapes[0].mesh.indices.size();
 
@@ -49,7 +54,7 @@ void Mesh::init(json descr)
 		glBindBuffer(GL_ARRAY_BUFFER, m_vboId);
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
 		glEnableVertexAttribArray(0);
-		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(attrib.vertices.size() * sizeof(float) * 3));
+		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(m_vertexCount * sizeof(float) * 3));
 		glEnableVertexAttribArray(1);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
@@ -71,9 +76,7 @@ void Mesh::render(mat4 transformMatrix, mat4 projectionMatrix)
 	glUniformMatrix4fv(m_projectionAttrib, 1, GL_FALSE, value_ptr(projectionMatrix));
 	glUniformMatrix4fv(m_transformAttrib, 1, GL_FALSE, value_ptr(transformMatrix));
 	glBindVertexArray(m_vaoId);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_elementBufferId);
-	glDrawElements(GL_TRIANGLES, m_vertexCount, GL_UNSIGNED_INT, BUFFER_OFFSET(0));
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+	glDrawArrays(GL_TRIANGLES, 0, m_vertexCount);
 	glBindVertexArray(0);
 	glUseProgram(0);
 }

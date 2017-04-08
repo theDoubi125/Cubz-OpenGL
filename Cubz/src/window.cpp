@@ -89,7 +89,8 @@ void Window::update(float deltaTime)
 
 void Window::onKeyPressed(int key)
 {
-	m_debugWindow = !m_debugWindow;
+	if(key == GLFW_KEY_KP_ADD)
+		m_debugWindow = !m_debugWindow;
 }
 
 bool Window::isOpen() const

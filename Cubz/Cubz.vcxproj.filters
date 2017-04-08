@@ -79,6 +79,12 @@
       <Filter>src\util</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="src\cube.h">
+      <Filter>src\entity\component\cube</Filter>
+    </ClInclude>
+    <ClInclude Include="src\state_machine.h">
+      <Filter>src\entity\state machine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -104,6 +110,12 @@
     </Filter>
     <Filter Include="src\entity\component">
       <UniqueIdentifier>{f58c763b-3b1a-4a83-99cb-db0d2e43405d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity\component\cube">
+      <UniqueIdentifier>{5ae580bd-90b4-4bf7-9c97-7ba23da86688}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity\state machine">
+      <UniqueIdentifier>{8d912d24-ab76-4c40-bc7f-ad897389b42c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

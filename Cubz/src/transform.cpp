@@ -26,7 +26,9 @@ mat4 Transform::transformMatrix() const
 	matrix[3].x = m_pos.x;
 	matrix[3].y = m_pos.y;
 	matrix[3].z = m_pos.z;
-	return matrix;
+	mat4 scaleMat = mat4(m_scale);
+	scaleMat[3].w = 1;
+	return matrix * scaleMat;
 }
 
 void Transform::setPosition(const vec3& pos)

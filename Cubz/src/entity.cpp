@@ -1,6 +1,7 @@
 #include <glad.h>
 #include <GLFW/glfw3.h>
 #include <imgui.h>
+#include <cmath>
 
 #include "entity.h"
 #include "mesh_render.h"
@@ -94,19 +95,29 @@ void Entity::render() const
 
 void Entity::debugUI()
 {
-	for (auto it = m_components.begin(); it != m_components.end(); it++)
+	if (ImGui::TreeNode("transform"))
 	{
-		if (ImGui::TreeNode("transform"))
+		ImGui::InputFloat3("position", &transform().position().x);
+		if (ImGui::TreeNode("rotation"))
 		{
-			if (ImGui::TreeNode("position"))
+			vec3 angles = eulerAngles(transform().rotation());
+			vec3 modifiedAngles = angles;
+			ImGui::SliderFloat("x", &(modifiedAngles.x), -3.14, 3.14, "%.3f");
+			ImGui::SliderFloat("y", &(modifiedAngles.y), -3.14, 3.14, "%.3f");
+			ImGui::SliderFloat("z", &(modifiedAngles.z), -3.14, 3.14, "%.3f");
+
+			if (angles != modifiedAngles)
 			{
-				ImGui::SliderFloat("x", &(transform().position().x), -10, 10, "%.3f");
-				ImGui::SliderFloat("y", &(transform().position().y), -10, 10, "%.3f");
-				ImGui::SliderFloat("z", &(transform().position().z), -10, 10, "%.3f");
-				ImGui::TreePop();
+				transform().rotation() = quat(modifiedAngles);
 			}
+
 			ImGui::TreePop();
 		}
+		ImGui::SliderFloat("scale", &(transform().scale()), 0.01, 100, "%.3f");
+		ImGui::TreePop();
+	}
+	for (auto it = m_components.begin(); it != m_components.end(); it++)
+	{
 		if (ImGui::TreeNode(it->first.c_str()))
 		{
 			it->second->debugUI();
