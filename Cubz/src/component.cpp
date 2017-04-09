@@ -8,6 +8,7 @@
 
 #include "component.h"
 #include "factory.h"
+#include "state_machine.h"
 
 Component::Component() : m_entity(NULL)
 {
