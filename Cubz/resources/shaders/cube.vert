@@ -10,8 +10,7 @@ in vec2 in_texCoord;
 
 out vec2 texCoord;
 
-uniform mat4 transform;
-uniform mat4 projection;
+uniform mat4 mvp;
 
 
 // Fonction main
@@ -20,6 +19,6 @@ void main()
 {
     // Position finale du vertex
 
-    gl_Position = projection * transform * vec4(in_Vertex, 1.0);
+    gl_Position = mvp * vec4(in_Vertex, 1.0);
 	texCoord = in_texCoord;
 }

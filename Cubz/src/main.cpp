@@ -18,6 +18,16 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 	Input::instance.onKeyEvent(key, action);
 }
 
+void cursorPositionCallback(GLFWwindow* window, double xpos, double ypos)
+{
+	Input::instance.onMouseMoved(xpos, ypos);
+}
+
+void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
+{
+	Input::instance.onButtonEvent(button, action);
+}
+
 int main(int argc, char* argv[])
 {
 	if (!glfwInit())
@@ -39,6 +49,8 @@ int main(int argc, char* argv[])
 
 
 	glfwSetKeyCallback(window->glwfWindow(), keyCallback);
+	glfwSetMouseButtonCallback(window->glwfWindow(), mouseButtonCallback);
+	glfwSetCursorPosCallback(window->glwfWindow(), cursorPositionCallback);
 	while (window->isOpen())
 	{
 		Input::instance.update();

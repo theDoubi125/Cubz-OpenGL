@@ -4,6 +4,7 @@
 
 #include "vec.h"
 #include "mesh.h"
+#include "camera.h"
 
 #define TINYOBJLOADER_IMPLEMENTATION
 #include <obj_loader\tiny_obj_loader.h>
@@ -60,8 +61,7 @@ void Mesh::init(json descr)
 	glBindVertexArray(0);
 
 	m_shader = Shader::getShader(descr["shader"]);
-	m_projectionAttrib = glGetUniformLocation(m_shader->getProgramId(), "projection");
-	m_transformAttrib = glGetUniformLocation(m_shader->getProgramId(), "transform");
+	m_mvpAttrib = glGetUniformLocation(m_shader->getProgramId(), "mvp");
 }
 
 void Mesh::load(const std::string& path)
@@ -73,8 +73,8 @@ void Mesh::render(mat4 transformMatrix, mat4 projectionMatrix)
 {
 	glUseProgram(m_shader->getProgramId());
 	int shaderId = m_shader->getProgramId();
-	glUniformMatrix4fv(m_projectionAttrib, 1, GL_FALSE, value_ptr(projectionMatrix));
-	glUniformMatrix4fv(m_transformAttrib, 1, GL_FALSE, value_ptr(transformMatrix));
+	mat4 viewMatrix = Camera::ActiveCamera()->getViewMatrix();
+	glUniformMatrix4fv(m_mvpAttrib, 1, GL_FALSE, value_ptr(projectionMatrix * viewMatrix * transformMatrix));
 	glBindVertexArray(m_vaoId);
 	glDrawArrays(GL_TRIANGLES, 0, m_vertexCount);
 	glBindVertexArray(0);

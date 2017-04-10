@@ -6,6 +6,7 @@
 #include "entity.h"
 #include "mesh_render.h"
 #include "cube.h"
+#include "camera.h"
 
 Entity::Entity() : m_name("")
 {
@@ -26,6 +27,8 @@ void Entity::registerComponent(const std::string& name, Component* model)
 
 void Entity::registerComponents()
 {
+	registerComponent("Camera", new Camera());
+	registerComponent("FreeCamera", new FreeCamera());
 	registerComponent("Test", new TestComponent());
 	registerComponent("MeshRenderer", new MeshRenderer());
 	registerComponent("Cube", new CubeComponent());

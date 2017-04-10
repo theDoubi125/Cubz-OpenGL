@@ -19,7 +19,7 @@ void CubeComponent::init(json descr)
 
 void CubeComponent::update(float deltaTime)
 {
-	m_entity->transform().translate(vec3(m_inputVec.x, 0, m_inputVec.y) * deltaTime);
+	//m_entity->transform().translate(vec3(m_inputVec.x, 0, m_inputVec.y) * deltaTime);
 }
 
 Component* CubeComponent::clone() const

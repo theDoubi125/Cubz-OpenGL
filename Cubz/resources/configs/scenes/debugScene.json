@@ -1,5 +1,23 @@
 [
   {
+    "name": "camera",
+    "transform": {
+      "pos": [ 0, 0, 0 ],
+      "rot": {
+        "axis": [ 0, 1, 0 ],
+        "angle": 0
+      },
+      "scale": 1
+    },
+    "components": {
+      "Camera": {
+        "active": true
+      },
+      "FreeCamera": {
+      }
+    }
+  },
+  {
     "name": "test",
     "transform": {
       "pos": [ 2, 2, -10 ],
@@ -20,17 +38,17 @@
           }
         }
       },
-      "Cube": {}
+      "Cube": { }
     }
   },
   {
-    
+
     "name": "lala",
     "components": {
       "Test": { }
     }
   },
-	{"name": "gna"},
-	{"name": "ukg"},
-	{"name": "sfsf"}
+  { "name": "gna" },
+  { "name": "ukg" },
+  { "name": "sfsf" }
 ]

@@ -1,4 +1,6 @@
 #include "transform.h"
+#include <iostream>
+#include <glm/gtx/string_cast.hpp>
 
 Transform::Transform()
 {
@@ -31,17 +33,6 @@ mat4 Transform::transformMatrix() const
 	return matrix * scaleMat;
 }
 
-mat4 Transform::viewMatrix() const
-{
-	mat4 matrix = toMat4(m_rot);
-	matrix[3].x = m_pos.x;
-	matrix[3].y = m_pos.y;
-	matrix[3].z = m_pos.z;
-	mat4 scaleMat = mat4(m_scale);
-	scaleMat[3].w = 1;
-	return matrix * scaleMat;
-}
-
 void Transform::setPosition(const vec3& pos)
 {
 	m_pos = pos;
@@ -59,6 +50,8 @@ void Transform::setScale(float scale)
 
 void Transform::translate(const vec3& vec)
 {
+	if (vec != vec3(0, 0, 0))
+		std::cout << to_string(vec) << std::endl;
 	m_pos += vec;
 }
 

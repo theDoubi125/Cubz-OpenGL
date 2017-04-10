@@ -22,7 +22,7 @@ private:
 	void load(const std::string& path);
 
 	GLuint m_vboId, m_vaoId, m_elementBufferId;
-	GLuint m_projectionAttrib, m_transformAttrib;
+	GLuint m_mvpAttrib;
 	vec3* m_vertex;
 	vec2* m_uvs;
 	int m_vertexCount, m_indicesCount;

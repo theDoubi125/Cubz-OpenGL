@@ -70,3 +70,37 @@ void Input::onKeyEvent(int key, int event)
 		break;
 	}
 }
+
+void Input::onMouseMoveEvent(int x, int y)
+{
+	for (int i = 0; i < m_listeners.size(); i++)
+	{
+		m_listeners[i]->onMouseMove(x, y);
+	}
+}
+
+void Input::onButtonEvent(int button, int event)
+{
+	int i;
+	switch (event)
+	{
+	case GLFW_PRESS:
+		for (i = 0; i < m_listeners.size(); i++)
+		{
+			m_listeners[i]->onButtonPressed(button);
+		}
+		break;
+	case GLFW_RELEASE:
+		for (i = 0; i < m_listeners.size(); i++)
+		{
+			m_listeners[i]->onButtonReleased(button);
+		}
+		break;
+	case GLFW_REPEAT:
+		for (i = 0; i < m_listeners.size(); i++)
+		{
+			//m_listeners[i]->onKeyReleased(key);
+		}
+		break;
+	}
+}
