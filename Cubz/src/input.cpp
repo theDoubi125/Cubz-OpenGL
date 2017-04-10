@@ -65,7 +65,7 @@ void Input::onKeyEvent(int key, int event)
 	case GLFW_REPEAT:
 		for (i = 0; i < m_listeners.size(); i++)
 		{
-			m_listeners[i]->onKeyReleased(key);
+			//m_listeners[i]->onKeyReleased(key);
 		}
 		break;
 	}

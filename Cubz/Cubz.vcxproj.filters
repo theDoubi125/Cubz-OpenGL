@@ -37,6 +37,12 @@
     <ClCompile Include="src\transform.cpp">
       <Filter>src\util</Filter>
     </ClCompile>
+    <ClCompile Include="src\cube.cpp">
+      <Filter>src\entity\component\cube</Filter>
+    </ClCompile>
+    <ClCompile Include="src\camera.cpp">
+      <Filter>src\entity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entity.h">
@@ -84,6 +90,9 @@
     </ClInclude>
     <ClInclude Include="src\state_machine.h">
       <Filter>src\entity\state machine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\camera.h">
+      <Filter>src\entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

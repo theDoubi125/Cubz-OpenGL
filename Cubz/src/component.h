@@ -20,11 +20,11 @@ class Component
 public:
 	Component();
 	virtual ~Component();
-	virtual void init(json descr) = 0;
-	virtual void start() = 0;
-	virtual void update(float deltaTime) = 0;
-	virtual void render() const = 0;
-	virtual void debugUI() = 0;
+	virtual void init(json descr) {}
+	virtual void start() {}
+	virtual void update(float deltaTime) {}
+	virtual void render() const {}
+	virtual void debugUI() {}
 	
 	virtual Component* clone() const = 0;
 

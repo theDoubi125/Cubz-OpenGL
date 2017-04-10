@@ -1,4 +1,7 @@
-﻿imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetWindowSize referenced in function "void __cdecl ImGui_ImplGlfwGL3_NewFrame(void)" (?ImGui_ImplGlfwGL3_NewFrame@@YAXXZ)
+﻿  camera.cpp
+c:\users\jrevel\documents\cubz-opengl\cubz\src\camera.cpp(29): warning C4172: returning address of local variable or temporary
+c:\users\jrevel\documents\cubz-opengl\cubz\src\camera.cpp(24): warning C4172: returning address of local variable or temporary
+imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetWindowSize referenced in function "void __cdecl ImGui_ImplGlfwGL3_NewFrame(void)" (?ImGui_ImplGlfwGL3_NewFrame@@YAXXZ)
 imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetFramebufferSize referenced in function "void __cdecl ImGui_ImplGlfwGL3_NewFrame(void)" (?ImGui_ImplGlfwGL3_NewFrame@@YAXXZ)
 window.obj : error LNK2001: unresolved external symbol glfwGetFramebufferSize
 imgui_impl_glfw_gl3.obj : error LNK2019: unresolved external symbol glfwGetWindowAttrib referenced in function "void __cdecl ImGui_ImplGlfwGL3_NewFrame(void)" (?ImGui_ImplGlfwGL3_NewFrame@@YAXXZ)

@@ -21,11 +21,11 @@ public:
 
 	}
 
-	virtual void onInitState() = 0;
+	virtual void onPushed() = 0;
 	virtual void onEnterState() = 0;
 	virtual void onOtherStatePushed() = 0;
 	virtual void onExitState() = 0;
-	virtual void onReleaseState() = 0;
+	virtual void update(float deltaTime) = 0;
 private:
 	T* m_entity;
 };
@@ -43,23 +43,42 @@ public:
 	{
 		while (!m_states.empty())
 		{
-			delete m_states.pop();
+			delete m_states.top();
+			m_states.pop();
 		}
 	}
 
 	void pushState(State<T*> state)
 	{
 		m_states.top()->onOtherStatePushed();
+		state->onPushed();
+		m_states.push(state);
 	}
 
 	void changeState(State<T*> state)
 	{
-
+		State<T*> toPop = m_states.pop();
+		toPop->onExitState();
+		delete toPop;
+		state->onPushed();
+		m_states.push(state);
 	}
 
 	void popState()
 	{
+		State<T*> state = m_states.pop();
+		state->onExitState();
+		delete state;
+		if (m_states.size() == 0)
+		{
+			throw std::exception("Empty state stack");
+		}
+		m_states.top().onEnterState();
+	}
 
+	void update(float deltaTime)
+	{
+		m_states.top()->update(deltaTime);
 	}
 
 private:

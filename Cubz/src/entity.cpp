@@ -5,6 +5,7 @@
 
 #include "entity.h"
 #include "mesh_render.h"
+#include "cube.h"
 
 Entity::Entity() : m_name("")
 {
@@ -27,6 +28,7 @@ void Entity::registerComponents()
 {
 	registerComponent("Test", new TestComponent());
 	registerComponent("MeshRenderer", new MeshRenderer());
+	registerComponent("Cube", new CubeComponent());
 }
 
 void Entity::init(json descr)

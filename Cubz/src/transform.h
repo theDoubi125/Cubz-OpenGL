@@ -12,6 +12,7 @@ public:
 	~Transform();
 
 	mat4 transformMatrix() const;
+	mat4 viewMatrix() const;
 
 	void setPosition(const vec3& pos);
 	void setRotation(const quat& rot);

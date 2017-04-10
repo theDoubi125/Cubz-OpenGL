@@ -15,11 +15,12 @@
         "mesh": {
           "obj": "meshes/cube.obj",
           "shader": {
-            "vertex": "resources/shaders/cube.vert", 
+            "vertex": "resources/shaders/cube.vert",
             "fragment": "resources/shaders/cube.frag"
           }
         }
-      }
+      },
+      "Cube": {}
     }
   },
   {
