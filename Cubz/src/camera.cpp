@@ -59,8 +59,8 @@ void FreeCamera::update(float deltaTime)
 	vec3 vec = vec3(m_inputVec.x, 0, m_inputVec.y) * inverse(m_entity->transform().rotation());
 	vec.y = 0;
 	if(vec != vec3(0, 0, 0))
-		vec = normalize(vec);
-	vec += vec3(0, m_verticalInput, 0);
+		vec = normalize(vec) * m_walkSpeed;
+	vec += vec3(0, m_verticalInput * m_verticalSpeed, 0);
 	m_entity->transform().translate(vec * deltaTime);
 }
 
@@ -132,7 +132,7 @@ void FreeCamera::onKeyReleased(int key)
 
 void FreeCamera::onButtonPressed(int button)
 {
-	if (button == 0)
+	if (button == 1)
 	{
 		m_leftButtonInput = true;
 		m_dragMousePos = m_mousePos;
@@ -141,7 +141,7 @@ void FreeCamera::onButtonPressed(int button)
 
 void FreeCamera::onButtonReleased(int button)
 {
-	if (button == 0)
+	if (button == 1)
 		m_leftButtonInput = false;
 }
 
@@ -151,8 +151,9 @@ void FreeCamera::onMouseMove(int x, int y)
 	m_mousePos.y = y;
 	if (m_leftButtonInput)
 	{
-		m_viewAngles += ivec2(x, y) - m_lastMousePos;
-		m_entity->transform().rotation() = quat(vec3(m_viewAngles.y / 100.0f, -m_viewAngles.x / 100.0f, 0));
+		ivec2 diff = ivec2(x, y) - m_lastMousePos;
+		m_viewAngles += m_sensitivity * (vec2)(diff);
+		m_entity->transform().rotation() = quat(vec3(m_viewAngles.y, m_viewAngles.x, 0));
 	}
 	m_lastMousePos = ivec2(x, y);
 }

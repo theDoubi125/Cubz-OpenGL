@@ -47,7 +47,8 @@ private:
 	float m_verticalInput;
 	bool m_rightInput, m_leftInput, m_upInput, m_downInput, m_leftButtonInput;
 	ivec2 m_mousePos, m_lastMousePos;
-	ivec2 m_dragMousePos, m_viewAngles;
+	ivec2 m_dragMousePos;
+	vec2 m_viewAngles;
 
 	float m_sensitivity, m_walkSpeed, m_verticalSpeed;
 };
