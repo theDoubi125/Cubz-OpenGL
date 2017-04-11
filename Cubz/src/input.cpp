@@ -5,12 +5,17 @@ Input& Input::instance = Input();
 
 InputListener::InputListener()
 {
-	Input::instance.addListener(this);
+
 }
 
 InputListener::~InputListener()
 {
 	Input::instance.removeListener(this);
+}
+
+void InputListener::startListening()
+{
+	Input::instance.addListener(this);
 }
 
 Input::Input()

@@ -31,7 +31,7 @@ Component* CubeComponent::clone() const
 
 void CubeComponent::start()
 {
-
+	startListening();
 }
 
 void CubeComponent::render() const

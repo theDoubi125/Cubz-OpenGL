@@ -10,7 +10,7 @@ class Input;
 struct GLFWwindow;
 class Scene;
 
-class Window : InputListener
+class Window : public InputListener
 {
 public:
 	Window(std::string title, ivec2 size);

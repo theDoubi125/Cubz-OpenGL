@@ -28,6 +28,7 @@ private:
 class FreeCamera : public Component, public InputListener
 {
 public:
+	virtual void start() override;
 	virtual void init(json descr) override;
 	virtual void update(float deltaTime) override;
 
@@ -37,11 +38,18 @@ public:
 	virtual void onKeyPressed(int key) override;
 	virtual void onKeyReleased(int key) override;
 	virtual void onMouseMove(int x, int y) override;
+	virtual void onButtonPressed(int button) override;
+	virtual void onButtonReleased(int button) override;
+	virtual void debugUI() override;
 
 private:
 	ivec2 m_inputVec;
-	bool m_rightInput, m_leftInput, m_upInput, m_downInput;
+	float m_verticalInput;
+	bool m_rightInput, m_leftInput, m_upInput, m_downInput, m_leftButtonInput;
 	ivec2 m_mousePos, m_lastMousePos;
+	ivec2 m_dragMousePos, m_viewAngles;
+
+	float m_sensitivity, m_walkSpeed, m_verticalSpeed;
 };
 
 #endif

@@ -27,7 +27,7 @@ Window* Window::m_currentWindow(NULL);
 
 Window::Window(std::string title, ivec2 size) : m_size(size), m_title(title), m_window(NULL), m_isOpen(false), m_scene(new Scene())
 {
-
+	startListening();
 }
 
 Window::~Window()
@@ -59,6 +59,7 @@ void Window::open()
 	json descr;
 	descrFile >> descr;
 	m_scene->init(descr);
+	m_scene->start();
 }
 
 void Window::close()
