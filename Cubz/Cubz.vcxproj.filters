@@ -43,6 +43,9 @@
     <ClCompile Include="src\camera.cpp">
       <Filter>src\entity</Filter>
     </ClCompile>
+    <ClCompile Include="src\world.cpp">
+      <Filter>src\entity\world</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entity.h">
@@ -94,6 +97,9 @@
     <ClInclude Include="src\camera.h">
       <Filter>src\entity</Filter>
     </ClInclude>
+    <ClInclude Include="src\world.h">
+      <Filter>src\entity\world</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -125,6 +131,9 @@
     </Filter>
     <Filter Include="src\entity\state machine">
       <UniqueIdentifier>{8d912d24-ab76-4c40-bc7f-ad897389b42c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity\world">
+      <UniqueIdentifier>{6de5722f-feae-45ab-a934-03ccaa2cc1e6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

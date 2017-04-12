@@ -1,7 +1,42 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (GLFW Tests.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   camera.cpp
-g:\documents\julien\projets\c++\cubz-opengl\cubz\src\camera.cpp(25): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
-g:\documents\julien\projets\c++\cubz-opengl\cubz\src\camera.cpp(35): warning C4172: retourne l'adresse d'une variable locale ou : result temporaire
-g:\documents\julien\projets\c++\cubz-opengl\cubz\src\camera.cpp(168): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
-  Cubz.vcxproj -> G:\Documents\Julien\Projets\C++\Cubz-OpenGL\Debug\Cubz.exe
-  Cubz.vcxproj -> G:\Documents\Julien\Projets\C++\Cubz-OpenGL\Debug\Cubz.pdb (Partial PDB)
+  Generating Code...
+c:\users\jrevel\documents\cubz-opengl\cubz\src\camera.cpp(35): warning C4172: returning address of local variable or temporary: result
+c:\users\jrevel\documents\cubz-opengl\cubz\src\camera.cpp(25): warning C4172: returning address of local variable or temporary
+c:\users\jrevel\documents\cubz-opengl\cubz\src\camera.cpp(168): warning C4172: returning address of local variable or temporary
+  Compiling...
+  mesh.cpp
+  entity.cpp
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6683): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6689): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6695): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6701): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6715): warning C4003: not enough actual parameters for macro 'min'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6715): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6721): warning C4003: not enough actual parameters for macro 'min'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6721): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6727): warning C4003: not enough actual parameters for macro 'min'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6727): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6733): warning C4003: not enough actual parameters for macro 'min'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6733): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6750): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6756): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6762): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6768): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6925): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6931): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6937): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6959): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6965): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6971): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(7184): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\cubz\src\entity.cpp(110): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jrevel\documents\cubz-opengl\cubz\src\entity.cpp(111): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jrevel\documents\cubz-opengl\cubz\src\entity.cpp(112): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\jrevel\documents\cubz-opengl\cubz\src\entity.cpp(121): warning C4305: 'argument': truncation from 'double' to 'float'
+  Generating Code...
+c:\users\jrevel\documents\cubz-opengl\cubz\src\factory.h(15): warning C4715: 'Factory<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,Component>::createInstance': not all control paths return a value
+  LINK : C:\Users\jrevel\Documents\Cubz-OpenGL\Debug\Cubz.exe not found or not built by the last incremental link; performing full link
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Cubz.vcxproj -> C:\Users\jrevel\Documents\Cubz-OpenGL\Debug\Cubz.exe
+  Cubz.vcxproj -> C:\Users\jrevel\Documents\Cubz-OpenGL\Debug\Cubz.pdb (Partial PDB)

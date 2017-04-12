@@ -135,6 +135,7 @@
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\transform.cpp" />
     <ClCompile Include="src\window.cpp" />
+    <ClCompile Include="src\world.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="src\transform.h" />
     <ClInclude Include="src\vec.h" />
     <ClInclude Include="src\window.h" />
+    <ClInclude Include="src\world.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\configs\scenes\debugScene.json" />
