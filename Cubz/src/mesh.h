@@ -9,24 +9,35 @@
 #include "shader.h"
 #include <json.hpp>
 
+#define PART_COUNT_MAX 10
+#define MAX_VERTEX_COUNT 2000
+
 class Mesh
 {
 public:
-	Mesh();
 	virtual ~Mesh();
 
-	void init(json descr);
+	void initData(int partCount);
+	void setData(int partId, Shader* shader, int vertexCount, float* vertex, float* uv, GLuint drawType = GL_STATIC_DRAW);
 	void render(mat4 transformMatrix, mat4 projectionMatrix);
 
 private:
-	void load(const std::string& path);
+	GLuint m_vbos[PART_COUNT_MAX];
+	GLuint m_vaos[PART_COUNT_MAX];
+	Shader* m_shaders[PART_COUNT_MAX];
+	int m_vertexCount[PART_COUNT_MAX];
+	int m_partCount;
 
-	GLuint m_vboId, m_vaoId, m_elementBufferId;
-	GLuint m_mvpAttrib;
-	vec3* m_vertex;
-	vec2* m_uvs;
-	int m_vertexCount, m_indicesCount;
-	Shader* m_shader;
+	GLuint m_mvpAttribs[PART_COUNT_MAX];
+};
+
+class LoadedMesh : public Mesh
+{
+public:
+	LoadedMesh();
+	virtual ~LoadedMesh();
+
+	void init(json descr);
 };
 
 #endif MESH_INCLUDED

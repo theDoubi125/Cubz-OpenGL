@@ -31,7 +31,7 @@ void MeshRenderer::init(json descr)
 	std::string resourceName = descr["mesh"]["obj"];
 	if (!m_meshManager.hasResource(resourceName))
 	{
-		Mesh *mesh = new Mesh();
+		LoadedMesh *mesh = new LoadedMesh();
 		mesh->init(descr["mesh"]);
 		m_meshManager.registerResource(resourceName, mesh);
 	}

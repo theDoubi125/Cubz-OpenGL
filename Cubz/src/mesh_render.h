@@ -4,9 +4,9 @@
 #include "component.h"
 #include "resource_manager.h"
 
-class Mesh;
+class LoadedMesh;
 
-typedef ResourceManager<Mesh> MeshManager;
+typedef ResourceManager<LoadedMesh> MeshManager;
 
 class MeshRenderer : public Component
 {
@@ -30,7 +30,7 @@ public:
 	static void registerMeshes();
 
 private:
-	Mesh* m_mesh;
+	LoadedMesh* m_mesh;
 
 	static MeshManager m_meshManager;
 };
