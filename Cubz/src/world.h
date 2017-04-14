@@ -4,6 +4,9 @@
 #define WORLD_INCLUDED
 
 #include "vec.h"
+#include "mesh.h"
+
+#define BLOCK_TYPE_COUNT 10
 
 /*
 	World: has an array of cells identified by its ID
@@ -18,12 +21,22 @@ public:
 
 	int getTile(ivec3 cell) const;
 	void setTile(ivec3 cell, int id);
-
-	bool hasNeighbour(ivec3 cell, ivec3 dir);
+	ivec3 getSize() const;
 
 private:
 	ivec3 m_size;
 	int *m_data;
+};
+
+class WorldMesh : Mesh
+{
+public:
+	WorldMesh(const World& world);
+	virtual ~WorldMesh();
+	void updateData();
+
+private:
+	const World& m_world;
 };
 
 #endif
