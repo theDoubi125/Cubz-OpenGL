@@ -13,6 +13,7 @@ public:
 	virtual const std::string& getName() const override;
 
 	const mat4& getViewMatrix() const;
+	const mat4& getProjectionMatrix() const;
 
 	void activate();
 

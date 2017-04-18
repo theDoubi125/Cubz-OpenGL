@@ -1,6 +1,5 @@
 #include <glad.h>
 #include <GLFW\glfw3.h>
-#include <glm/gtc/matrix_transform.hpp>
 
 #include "mesh.h"
 #include "mesh_render.h"
@@ -27,7 +26,6 @@ void MeshRenderer::registerMeshes()
 
 void MeshRenderer::init(json descr)
 {
-	std::cout << descr.dump(0) << std::endl;
 	std::string resourceName = descr["mesh"]["obj"];
 	if (!m_meshManager.hasResource(resourceName))
 	{
@@ -50,8 +48,7 @@ void MeshRenderer::update(float deltaTime)
 
 void MeshRenderer::render() const
 {
-	mat4 projectionMatrix = perspective(70.0, (double)800 / 600, 0.1, 100.0);
-	m_mesh->render(m_entity->transform().transformMatrix(), projectionMatrix);
+	m_mesh->render(m_entity->transform().transformMatrix());
 }
 
 void MeshRenderer::debugUI()

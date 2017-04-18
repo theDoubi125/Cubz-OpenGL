@@ -7,6 +7,8 @@
 #include "mesh_render.h"
 #include "cube.h"
 #include "camera.h"
+#include "world.h"
+#include "world_editor.h"
 
 Entity::Entity() : m_name("")
 {
@@ -32,6 +34,8 @@ void Entity::registerComponents()
 	registerComponent("Test", new TestComponent());
 	registerComponent("MeshRenderer", new MeshRenderer());
 	registerComponent("Cube", new CubeComponent());
+	registerComponent("World", new WorldComponent());
+	registerComponent("WorldEditor", new WorldEditor());
 }
 
 void Entity::init(json descr)

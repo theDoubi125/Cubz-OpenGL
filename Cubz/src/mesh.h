@@ -19,7 +19,7 @@ public:
 
 	void initData(int partCount);
 	void setData(int partId, Shader* shader, int vertexCount, float* vertex, float* uv, GLuint drawType = GL_STATIC_DRAW);
-	void render(mat4 transformMatrix, mat4 projectionMatrix);
+	void render(mat4 transformMatrix) const;
 
 private:
 	GLuint m_vbos[PART_COUNT_MAX];

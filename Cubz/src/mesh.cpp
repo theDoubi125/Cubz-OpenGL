@@ -84,13 +84,14 @@ void LoadedMesh::init(json descr)
 	setData(0, shader, vertexCount, vertex, uv);
 }
 
-void Mesh::render(mat4 transformMatrix, mat4 projectionMatrix)
+void Mesh::render(mat4 transformMatrix) const
 {
 	for (int i = 0; i < m_partCount; i++)
 	{
 		glUseProgram(m_shaders[i]->getProgramId());
 		int shaderId = m_shaders[i]->getProgramId();
 		mat4 viewMatrix = Camera::ActiveCamera()->getViewMatrix();
+		mat4 projectionMatrix = Camera::ActiveCamera()->getProjectionMatrix();
 		glUniformMatrix4fv(m_mvpAttribs[i], 1, GL_FALSE, value_ptr(projectionMatrix * viewMatrix * transformMatrix));
 		glBindVertexArray(m_vaos[i]);
 		glDrawArrays(GL_TRIANGLES, 0, m_vertexCount[i]);

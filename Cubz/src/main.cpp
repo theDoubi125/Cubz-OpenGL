@@ -28,6 +28,11 @@ void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 	Input::instance.onButtonEvent(button, action);
 }
 
+void scrollCallback(GLFWwindow* window, double /*xoffset*/, double yoffset)
+{
+	std::cout << yoffset << std::endl;
+}
+
 int main(int argc, char* argv[])
 {
 	if (!glfwInit())
@@ -51,6 +56,7 @@ int main(int argc, char* argv[])
 	glfwSetKeyCallback(window->glwfWindow(), keyCallback);
 	glfwSetMouseButtonCallback(window->glwfWindow(), mouseButtonCallback);
 	glfwSetCursorPosCallback(window->glwfWindow(), cursorPositionCallback);
+	glfwSetScrollCallback(window->glwfWindow(), scrollCallback);
 	while (window->isOpen())
 	{
 		Input::instance.update();

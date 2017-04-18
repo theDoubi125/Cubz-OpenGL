@@ -46,6 +46,9 @@
     <ClCompile Include="src\world.cpp">
       <Filter>src\entity\world</Filter>
     </ClCompile>
+    <ClCompile Include="src\world_editor.cpp">
+      <Filter>src\editor</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entity.h">
@@ -100,6 +103,9 @@
     <ClInclude Include="src\world.h">
       <Filter>src\entity\world</Filter>
     </ClInclude>
+    <ClInclude Include="src\world_editor.h">
+      <Filter>src\editor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -134,6 +140,9 @@
     </Filter>
     <Filter Include="src\entity\world">
       <UniqueIdentifier>{6de5722f-feae-45ab-a934-03ccaa2cc1e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\editor">
+      <UniqueIdentifier>{0a9f24a0-4741-41e9-9af8-e7f3dcff1ee0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

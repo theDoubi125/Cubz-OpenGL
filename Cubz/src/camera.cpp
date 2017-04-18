@@ -2,6 +2,7 @@
 #include "vec.h"
 #include "camera.h"
 #include "entity.h"
+#include <glm/gtc/matrix_transform.hpp>
 
 Camera* Camera::m_activeCamera = NULL;
 
@@ -33,6 +34,11 @@ const mat4& Camera::getViewMatrix() const
 	result[2].z *= -1;
 	result[3].z *= -1;
 	return result;
+}
+
+const mat4& Camera::getProjectionMatrix() const
+{
+	return perspective(70.0, (double)800 / 600, 0.1, 100.0);
 }
 
 void Camera::activate()
