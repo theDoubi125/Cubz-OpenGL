@@ -138,7 +138,17 @@ void WorldComponent::init(json descr)
 	m_mesh.updateData();
 }
 
+void WorldComponent::updateRender()
+{
+	m_mesh.updateData();
+}
+
 void WorldComponent::render() const
 {
 	m_mesh.render(m_entity->transform().transformMatrix());
+}
+
+World& WorldComponent::world()
+{
+	return m_world;
 }

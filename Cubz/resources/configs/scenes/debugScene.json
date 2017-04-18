@@ -10,14 +10,24 @@
             "scale": 1
         },
         "components": {
-            "Camera": {
-                "active": true
-            },
-            "FreeCamera": {
-                "sensitivity": 0.003,
-                "walkSpeed": 5,
-                "verticalSpeed": 3
-            }
+          "Camera": {
+            "active": true
+          },
+          "FreeCamera": {
+            "sensitivity": 0.003,
+            "walkSpeed": 5,
+            "verticalSpeed": 3
+          },
+          "WorldEditor": {
+            "mesh": {
+                    "obj": "meshes/cube.obj",
+                    "shader": {
+                        "vertex": "resources/shaders/cube.vert",
+                        "fragment": "resources/shaders/cube.frag"
+                    }
+                }
+          }
+
         }
     },
     {

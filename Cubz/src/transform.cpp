@@ -2,7 +2,7 @@
 #include <iostream>
 #include <glm/gtx/string_cast.hpp>
 
-Transform::Transform()
+Transform::Transform() : m_scale(1)
 {
 
 }

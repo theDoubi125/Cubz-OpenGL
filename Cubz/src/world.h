@@ -52,6 +52,10 @@ public:
 	virtual void init(json descr) override;
 	virtual void render() const override;
 
+	void updateRender();
+
+	World& world();
+
 private:
 	World m_world;
 	WorldMesh m_mesh;

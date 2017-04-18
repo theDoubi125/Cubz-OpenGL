@@ -3,6 +3,7 @@
 #include "component.h"
 
 class Mesh;
+class WorldComponent;
 
 class WorldEditor : public Component
 {
@@ -17,7 +18,7 @@ public:
 	virtual void debugUI() override;
 
 	virtual Component* clone() const override;
-	virtual std::string& getName() const;
+	virtual const std::string& getName() const override { return "WorldEditor"; }
 
 private:
 	int m_selectedTile;
@@ -25,4 +26,5 @@ private:
 	ivec3 m_target;
 	Mesh* m_cursorMesh;
 	Transform m_cursorTransform;
+	WorldComponent* m_world;
 };

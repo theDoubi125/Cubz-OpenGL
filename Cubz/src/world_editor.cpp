@@ -5,6 +5,7 @@
 #include "vec.h"
 #include "world_editor.h"
 #include "mesh.h"
+#include "world.h"
 
 WorldEditor::WorldEditor() : m_cursorMesh(NULL)
 {
@@ -26,13 +27,18 @@ void WorldEditor::init(json descr)
 
 void WorldEditor::start()
 {
-
+	m_world = (WorldComponent*)m_entity->getScene().getEntity("World")->getComponent("World");
 }
 
 void WorldEditor::update(float deltaTime)
 {
-	m_target = m_entity->transform().position() + (VEC_FORWARD * m_cursorDist) * m_entity->transform().rotation();
+	m_target = m_entity->transform().position() + (VEC_FORWARD * m_cursorDist) * inverse(m_entity->transform().rotation());
 	m_cursorTransform.setPosition(m_target);
+	if (m_world->world().getTile(m_target) == 0)
+	{
+		m_world->world().setTile(m_target, 1);
+		m_world->updateRender();
+	}
 }
 
 void WorldEditor::render() const
@@ -45,7 +51,7 @@ void WorldEditor::debugUI()
 
 }
 
-void WorldEditor::clone() const
+Component* WorldEditor::clone() const
 {
 	WorldEditor* result = new WorldEditor();
 	return result;

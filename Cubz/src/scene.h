@@ -24,8 +24,12 @@ public:
 
 	void render() const;
 
+	Entity* getEntity(const std::string& entity) const;
+	Entity* getEntity(const std::string& entity);
+
 private:
 	std::vector<Entity*> m_entities;
+	std::map<std::string, Entity*> m_entitiesByName;
 };
 
 #endif SCENE_HEADER

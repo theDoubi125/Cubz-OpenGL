@@ -5,7 +5,7 @@
 #include "component.h"
 #include "factory.h"
 #include "transform.h"
-
+#include "scene.h"
 
 class Entity
 {
@@ -34,11 +34,15 @@ public:
 	Transform& transform();
 	const Transform& transform() const;
 
+	Scene& getScene() { return *m_scene; }
+	void setScene(Scene& scene) { m_scene = &scene; }
+
 private:
 	std::string m_name;
 	std::map<std::string, Component*> m_components; 
 	static ComponentFactory m_componentFactory;
 	Transform m_transform;
+	Scene* m_scene;
 };
 
 #endif

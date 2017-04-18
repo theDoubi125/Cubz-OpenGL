@@ -62,10 +62,13 @@ void Scene::debugUI()
 void Scene::addEntity(Entity* entity)
 {
 	m_entities.push_back(entity);
+	m_entitiesByName[entity->getName()] = entity;
+	entity->setScene(*this);
 }
 
 void Scene::removeEntity(Entity* entity)
 {
+	m_entitiesByName.erase(entity->getName());
 	for (auto it = m_entities.begin(); it != m_entities.end(); it++)
 	{
 		if (*it == entity)
@@ -81,4 +84,14 @@ void Scene::render() const
 	glEnable(GL_DEPTH_TEST);
 	for (int i = 0; i < m_entities.size(); i++)
 		m_entities[i]->render();
+}
+
+Entity* Scene::getEntity(const std::string& name) const
+{
+	return m_entitiesByName.at(name);
+}
+
+Entity* Scene::getEntity(const std::string& name)
+{
+	return m_entitiesByName.at(name);
 }
