@@ -109,3 +109,11 @@ void Input::onButtonEvent(int button, int event)
 		break;
 	}
 }
+
+void Input::onWheelEvent(int offset)
+{
+	for (int i = 0; i < m_listeners.size(); i++)
+	{
+		m_listeners[i]->onMouseWheel(offset);
+	}
+}

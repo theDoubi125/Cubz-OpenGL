@@ -1,36 +1,5 @@
 [
     {
-        "name": "Camera",
-        "transform": {
-            "pos": [ 0, 0, 0 ],
-            "rot": {
-                "axis": [ 0, 1, 0 ],
-                "angle": 0
-            },
-            "scale": 1
-        },
-        "components": {
-          "Camera": {
-            "active": true
-          },
-          "FreeCamera": {
-            "sensitivity": 0.003,
-            "walkSpeed": 5,
-            "verticalSpeed": 3
-          },
-          "WorldEditor": {
-            "mesh": {
-                    "obj": "meshes/cube.obj",
-                    "shader": {
-                        "vertex": "resources/shaders/cube.vert",
-                        "fragment": "resources/shaders/cube.frag"
-                    }
-                }
-          }
-
-        }
-    },
-    {
         "name": "World",
         "transform": {
             "pos": [ 0, 0, 0 ],
@@ -68,6 +37,37 @@
                 }
             },
             "Cube": { }
+        }
+    },
+    {
+        "name": "Camera",
+        "transform": {
+            "pos": [ 0, 0, 0 ],
+            "rot": {
+                "axis": [ 0, 1, 0 ],
+                "angle": 0
+            },
+            "scale": 1
+        },
+        "components": {
+          "Camera": {
+            "active": true
+          },
+          "FreeCamera": {
+            "sensitivity": 0.003,
+            "walkSpeed": 5,
+            "verticalSpeed": 3
+          },
+          "WorldEditor": {
+            "mesh": {
+                    "obj": "meshes/cube.obj",
+                    "shader": {
+                        "vertex": "resources/shaders/cube.vert",
+                        "fragment": "resources/shaders/cursor.frag"
+                    }
+                }
+          }
+
         }
     }
 ]

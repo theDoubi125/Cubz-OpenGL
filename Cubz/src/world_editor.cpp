@@ -7,7 +7,7 @@
 #include "mesh.h"
 #include "world.h"
 
-WorldEditor::WorldEditor() : m_cursorMesh(NULL)
+WorldEditor::WorldEditor() : m_cursorMesh(NULL), m_mousePressed(false)
 {
 
 }
@@ -23,6 +23,9 @@ void WorldEditor::init(json descr)
 	((LoadedMesh*)m_cursorMesh)->init(descr["mesh"]);
 	m_selectedTile = 1;
 	m_cursorDist = 5;
+	m_cursorDistPrecision = 1;
+	m_cursorTransform.setScale(1.3f);
+	startListening();
 }
 
 void WorldEditor::start()
@@ -34,7 +37,7 @@ void WorldEditor::update(float deltaTime)
 {
 	m_target = m_entity->transform().position() + (VEC_FORWARD * m_cursorDist) * inverse(m_entity->transform().rotation());
 	m_cursorTransform.setPosition(m_target);
-	if (m_world->world().getTile(m_target) == 0)
+	if (m_mousePressed && m_world->world().getTile(m_target) == 0)
 	{
 		m_world->world().setTile(m_target, 1);
 		m_world->updateRender();
@@ -43,7 +46,11 @@ void WorldEditor::update(float deltaTime)
 
 void WorldEditor::render() const
 {
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	m_cursorMesh->render(m_cursorTransform.transformMatrix());
+	glEnable(GL_DEPTH_TEST);
+	glDisable(GL_BLEND);
 }
 
 void WorldEditor::debugUI()
@@ -55,4 +62,21 @@ Component* WorldEditor::clone() const
 {
 	WorldEditor* result = new WorldEditor();
 	return result;
+}
+
+void WorldEditor::onButtonPressed(int button)
+{
+	if(button == 0)
+		m_mousePressed = true;
+}
+
+void WorldEditor::onButtonReleased(int button)
+{
+	if (button == 0)
+		m_mousePressed = false;
+}
+
+void WorldEditor::onMouseWheel(int wheel)
+{
+	m_cursorDist += (float)wheel * m_cursorDistPrecision;
 }

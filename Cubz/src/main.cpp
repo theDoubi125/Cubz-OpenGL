@@ -30,7 +30,7 @@ void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods)
 
 void scrollCallback(GLFWwindow* window, double /*xoffset*/, double yoffset)
 {
-	std::cout << yoffset << std::endl;
+	Input::instance.onWheelEvent(yoffset);
 }
 
 int main(int argc, char* argv[])

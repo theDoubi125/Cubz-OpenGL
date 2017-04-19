@@ -15,6 +15,7 @@ public:
 	virtual void onMouseMove(int x, int y) { }
 	virtual void onButtonPressed(int button) { }
 	virtual void onButtonReleased(int button) { }
+	virtual void onMouseWheel(int offset) { }
 };
 
 class Input
@@ -34,6 +35,7 @@ public:
 	void onKeyEvent(int key, int event);
 	void onButtonEvent(int butotn, int event);
 	void onMouseMoveEvent(int x, int y);
+	void onWheelEvent(int offset);
 
 private:
 	std::vector<InputListener*> m_listeners;

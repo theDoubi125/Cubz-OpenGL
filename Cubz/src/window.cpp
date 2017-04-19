@@ -60,6 +60,8 @@ void Window::open()
 	descrFile >> descr;
 	m_scene->init(descr);
 	m_scene->start();
+	glFrontFace(GL_CW);
+	glEnable(GL_CULL_FACE);
 }
 
 void Window::close()
