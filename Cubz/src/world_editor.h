@@ -23,6 +23,8 @@ public:
 
 	virtual void onButtonPressed(int button) override;
 	virtual void onButtonReleased(int button) override;
+	virtual void onKeyPressed(int key) override;
+	virtual void onKeyReleased(int key) override;
 	virtual void onMouseWheel(int wheel) override;
 
 private:

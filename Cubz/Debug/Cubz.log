@@ -1,5 +1,36 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (GLFW Tests.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  world.cpp
-g:\documents\julien\projets\c++\cubz-opengl\cubz\src\world.h(51): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
-  Cubz.vcxproj -> G:\Documents\Julien\Projets\C++\Cubz-OpenGL\Debug\Cubz.exe
-  Cubz.vcxproj -> G:\Documents\Julien\Projets\C++\Cubz-OpenGL\Debug\Cubz.pdb (Partial PDB)
+  world_editor.cpp
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6683): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6689): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6695): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6701): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6715): warning C4003: not enough actual parameters for macro 'min'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6715): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6721): warning C4003: not enough actual parameters for macro 'min'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6721): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6727): warning C4003: not enough actual parameters for macro 'min'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6727): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6733): warning C4003: not enough actual parameters for macro 'min'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6733): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6750): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6756): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6762): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6768): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6925): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6931): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6937): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6959): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6965): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(6971): warning C4003: not enough actual parameters for macro 'max'
+c:\users\jrevel\documents\cubz-opengl\libs\json\json.hpp(7184): warning C4003: not enough actual parameters for macro 'max'
+  scene.cpp
+c:\users\jrevel\documents\cubz-opengl\cubz\src\scene.cpp(20): warning C4018: '<': signed/unsigned mismatch
+c:\users\jrevel\documents\cubz-opengl\cubz\src\scene.cpp(44): warning C4018: '<': signed/unsigned mismatch
+c:\users\jrevel\documents\cubz-opengl\cubz\src\scene.cpp(55): warning C4018: '<': signed/unsigned mismatch
+c:\users\jrevel\documents\cubz-opengl\cubz\src\scene.cpp(88): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+c:\users\jrevel\documents\cubz-opengl\cubz\src\world_editor.h(22): warning C4172: returning address of local variable or temporary
+  Skipping... (no relevant changes detected)
+  entity.cpp
+  Cubz.vcxproj -> C:\Users\jrevel\Documents\Cubz-OpenGL\Debug\Cubz.exe
+  Cubz.vcxproj -> C:\Users\jrevel\Documents\Cubz-OpenGL\Debug\Cubz.pdb (Partial PDB)

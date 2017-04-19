@@ -1,5 +1,6 @@
 #include <glad.h>
 #include <GLFW\glfw3.h>
+#include <imgui.h>
 
 #include "entity.h"
 #include "vec.h"
@@ -24,7 +25,7 @@ void WorldEditor::init(json descr)
 	m_selectedTile = 1;
 	m_cursorDist = 5;
 	m_cursorDistPrecision = 1;
-	m_cursorTransform.setScale(1.3f);
+	m_cursorTransform.setScale(1.01f);
 	startListening();
 }
 
@@ -37,9 +38,9 @@ void WorldEditor::update(float deltaTime)
 {
 	m_target = m_entity->transform().position() + (VEC_FORWARD * m_cursorDist) * inverse(m_entity->transform().rotation());
 	m_cursorTransform.setPosition(m_target);
-	if (m_mousePressed && m_world->world().getTile(m_target) == 0)
+	if (m_mousePressed && m_world->world().getTile(m_target) != m_selectedTile)
 	{
-		m_world->world().setTile(m_target, 1);
+		m_world->world().setTile(m_target, m_selectedTile);
 		m_world->updateRender();
 	}
 }
@@ -55,7 +56,7 @@ void WorldEditor::render() const
 
 void WorldEditor::debugUI()
 {
-
+	ImGui::DragInt("Tile", &m_selectedTile, 0.01f, 0, 9);
 }
 
 Component* WorldEditor::clone() const
@@ -74,6 +75,22 @@ void WorldEditor::onButtonReleased(int button)
 {
 	if (button == 0)
 		m_mousePressed = false;
+}
+
+void WorldEditor::onKeyPressed(int key)
+{
+	if (key == GLFW_KEY_F)
+	{
+		m_entity->getScene().setGamePaused(true);
+	}
+}
+
+void WorldEditor::onKeyReleased(int key)
+{
+	if (key == GLFW_KEY_F)
+	{
+		m_entity->getScene().setGamePaused(false);
+	}
 }
 
 void WorldEditor::onMouseWheel(int wheel)

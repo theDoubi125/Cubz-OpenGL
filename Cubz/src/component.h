@@ -23,6 +23,7 @@ public:
 	virtual void init(json descr) {}
 	virtual void start() {}
 	virtual void update(float deltaTime) {}
+	virtual void updatePaused(float deltaTime) {}
 	virtual void render() const {}
 	virtual void debugUI() {}
 	

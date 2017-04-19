@@ -94,6 +94,14 @@ void Entity::update(float deltaTime)
 	}
 }
 
+void Entity::updatePaused(float deltaTime)
+{
+	for (auto it = m_components.begin(); it != m_components.end(); it++)
+	{
+		it->second->updatePaused(deltaTime);
+	}
+}
+
 void Entity::render() const
 {
 	for (auto it = m_components.begin(); it != m_components.end(); it++)

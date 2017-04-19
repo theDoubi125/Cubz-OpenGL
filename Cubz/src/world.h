@@ -25,9 +25,12 @@ public:
 	ivec3 getSize() const;
 	bool isInBound(ivec3 cell) const;
 
+	void load(const std::string& path);
+	void save(const std::string& path) const;
+
 private:
 	ivec3 m_size;
-	int *m_data;
+	char *m_data;
 };
 
 class WorldMesh : public Mesh
@@ -51,6 +54,7 @@ public:
 	virtual const std::string& getName() const override { return "World"; }
 	virtual void init(json descr) override;
 	virtual void render() const override;
+	virtual void debugUI() override;
 
 	void updateRender();
 
@@ -59,6 +63,8 @@ public:
 private:
 	World m_world;
 	WorldMesh m_mesh;
+
+	char m_filePath[100];
 };
 
 #endif

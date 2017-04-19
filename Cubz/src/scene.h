@@ -27,9 +27,14 @@ public:
 	Entity* getEntity(const std::string& entity) const;
 	Entity* getEntity(const std::string& entity);
 
+	bool isGamePaused() const { return m_paused; }
+	void setGamePaused(bool paused) { m_paused = paused; }
+
 private:
 	std::vector<Entity*> m_entities;
 	std::map<std::string, Entity*> m_entitiesByName;
+
+	bool m_paused;
 };
 
 #endif SCENE_HEADER

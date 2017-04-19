@@ -43,7 +43,10 @@ void Scene::update(float deltaTime)
 {
 	for (int i = 0; i < m_entities.size(); i++)
 	{
-		m_entities[i]->update(deltaTime);
+		if(m_paused)
+			m_entities[i]->updatePaused(deltaTime);
+		else
+			m_entities[i]->update(deltaTime);
 	}
 }
 

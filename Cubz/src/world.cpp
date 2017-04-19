@@ -1,11 +1,13 @@
 #include <glad/glad.h>
+#include <imgui.h>
+#include <fstream>
 #include "world.h"
 #include "entity.h"
 
 World::World(ivec3 size) : m_size(size), m_data(NULL)
 {
-	m_data = new int[size.x * size.y * size.z];
-	memset(m_data, 0, sizeof(int) * (size.x * size.y * size.z));
+	m_data = new char[size.x * size.y * size.z];
+	memset(m_data, 0, sizeof(char) * (size.x * size.y * size.z));
 }
 
 World::~World()
@@ -32,6 +34,24 @@ ivec3 World::getSize() const
 bool World::isInBound(ivec3 cell) const
 {
 	return cell.x >= 0 && cell.y >= 0 && cell.z >= 0 && cell.x < m_size.x && cell.y < m_size.y && cell.z < m_size.z;
+}
+
+void World::load(const std::string &path)
+{
+	std::ifstream file("resources/level/"+path, std::ios::in | std::ios::binary);
+	ivec3 fileDim;
+	file.read((char*)&m_size, 3 * sizeof(int));
+	file.read(m_data, m_size.x * m_size.y * m_size.z);
+	file.close();
+}
+
+void World::save(const std::string &path) const
+{
+	std::ofstream file("resources/level/" + path, std::ios::out | std::ios::binary);
+	file.write((char*)&m_size, 3 * sizeof(int));
+	file.write(m_data, m_size.x * m_size.y * m_size.z);
+
+	file.close();
 }
 
 
@@ -63,8 +83,8 @@ void WorldMesh::updateData()
 	}
 
 	ivec3 directions[] =	{ IVEC_UP,		IVEC_RIGHT, IVEC_FORWARD, IVEC_DOWN,	IVEC_LEFT,		IVEC_BACK	};
-	ivec3 xVec[] =			{ IVEC_RIGHT,	IVEC_BACK,	IVEC_RIGHT, IVEC_BACK,		IVEC_FORWARD,	IVEC_LEFT	};
-	ivec3 yVec[] =			{ IVEC_FORWARD, IVEC_UP,	IVEC_UP,	IVEC_RIGHT,		IVEC_UP,		IVEC_UP		};
+	ivec3 xVec[] =			{ IVEC_FORWARD,	IVEC_BACK,	IVEC_RIGHT, IVEC_BACK,		IVEC_FORWARD,	IVEC_LEFT	};
+	ivec3 yVec[] =			{ IVEC_RIGHT, IVEC_UP,	IVEC_UP,	IVEC_RIGHT,		IVEC_UP,		IVEC_UP		};
 
 	//for each cell
 	for (int x = 0; x < worldDim.x; x++)
@@ -151,4 +171,18 @@ void WorldComponent::render() const
 World& WorldComponent::world()
 {
 	return m_world;
+}
+
+void WorldComponent::debugUI()
+{
+	ImGui::InputText("Path", m_filePath, 100);
+	if (ImGui::Button("Load"))
+	{
+		m_world.load(m_filePath);
+		updateRender();
+	}
+	if (ImGui::Button("Save"))
+	{
+		m_world.save(m_filePath);
+	}
 }

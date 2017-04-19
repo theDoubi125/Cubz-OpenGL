@@ -16,6 +16,7 @@ public:
 	void init(json descr);
 	void start();
 	void update(float deltaTime);
+	void updatePaused(float deltaTime);
 	void render() const;
 
 	void debugUI();
