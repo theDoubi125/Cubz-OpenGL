@@ -32,6 +32,7 @@ public:
 	virtual const std::string& getName() const = 0;
 
 	void setEntity(Entity* entity);
+	Entity& getEntity() { return *m_entity; }
 
 protected:
 	Entity* m_entity;

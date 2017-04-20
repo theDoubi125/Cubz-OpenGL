@@ -8,6 +8,11 @@
 class IdleState : State<CubeComponent>, public InputListener
 {
 public:
+	IdleState(CubeComponent* entity) : State<CubeComponent>(entity)
+	{
+
+	}
+
 	virtual void onEnterState() override;
 	virtual void onOtherStatePushed() override;
 
@@ -28,4 +33,5 @@ public:
 
 private:
 	ivec2 m_dir;
+	float m_time;
 };

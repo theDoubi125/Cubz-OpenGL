@@ -19,13 +19,11 @@ public:
 	virtual void debugUI() override;
 	virtual const std::string& getName() const override;
 
-	virtual void onKeyPressed(int key);
-	virtual void onKeyReleased(int key);
+	StateMachine<CubeComponent>& getStateMachine() { return *m_stateMachine; }
+	const StateMachine<CubeComponent>& getStateMachine() const { return *m_stateMachine; }
 
 private:
-	StateMachine<Entity>* m_stateMachine;
-	ivec2 m_inputVec;
-	bool m_rightInput, m_leftInput, m_upInput, m_downInput;
+	StateMachine<CubeComponent>* m_stateMachine;
 };
 
 #endif

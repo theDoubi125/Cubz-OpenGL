@@ -49,6 +49,9 @@
     <ClCompile Include="src\world_editor.cpp">
       <Filter>src\editor</Filter>
     </ClCompile>
+    <ClCompile Include="src\cube_states.cpp">
+      <Filter>src\entity\component\cube</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entity.h">
@@ -105,6 +108,9 @@
     </ClInclude>
     <ClInclude Include="src\world_editor.h">
       <Filter>src\editor</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cube_states.h">
+      <Filter>src\entity\component\cube</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
