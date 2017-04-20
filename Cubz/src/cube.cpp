@@ -14,7 +14,7 @@ CubeComponent::~CubeComponent()
 
 void CubeComponent::init(json descr)
 {
-	Input::instance.addListener(this);
+	startListening();
 }
 
 void CubeComponent::update(float deltaTime)

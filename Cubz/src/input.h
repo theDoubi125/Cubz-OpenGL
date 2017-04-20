@@ -10,6 +10,7 @@ public:
 	InputListener();
 	virtual ~InputListener();
 	void startListening();
+	void stopListening();
 	virtual void onKeyPressed(int key) { }
 	virtual void onKeyReleased(int key) { }
 	virtual void onMouseMove(int x, int y) { }

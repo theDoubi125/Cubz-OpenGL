@@ -21,12 +21,25 @@ public:
 
 	}
 
-	virtual void onPushed() = 0;
-	virtual void onEnterState() = 0;
-	virtual void onOtherStatePushed() = 0;
-	virtual void onExitState() = 0;
-	virtual void update(float deltaTime) = 0;
-private:
+	virtual void onPushed() {}
+	virtual void onEnterState() {}
+	virtual void onOtherStatePushed() {}
+	virtual void onExitState() {}
+	virtual void update(float deltaTime) {}
+
+	void pushState(State<T>* state)
+	{
+		StateMachine &machine = m_entity->getStateMachine();
+		machine.pushState(state);
+	}
+
+	void popState()
+	{
+		StateMachine &machine = m_entity->getStateMachine();
+		machine.popState();
+	}
+
+protected:
 	T* m_entity;
 };
 
@@ -52,6 +65,7 @@ public:
 	{
 		m_states.top()->onOtherStatePushed();
 		state->onPushed();
+		state->onEnterState();
 		m_states.push(state);
 	}
 
