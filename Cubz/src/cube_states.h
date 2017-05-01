@@ -5,7 +5,7 @@
 #include "input.h"
 #include "vec.h"
 
-class IdleState : State<CubeComponent>, public InputListener
+class IdleState : State<CubeComponent>
 {
 public:
 	IdleState(CubeComponent* entity) : State<CubeComponent>(entity)
@@ -13,25 +13,33 @@ public:
 
 	}
 
-	virtual void onEnterState() override;
-	virtual void onOtherStatePushed() override;
-
-private:
-	virtual void onKeyPressed(int key) override;
+	virtual void update(float deltaTime) override;
 };
 
-class MovingState : State<CubeComponent>
+class RollState : State<CubeComponent>
 {
 public:
-	MovingState(CubeComponent* entity, ivec2 dir);
+	RollState(CubeComponent* entity, vec3 rotationCenter, quat rotation, float speed);
 
-	virtual void onPushed() override;
-	virtual void onEnterState() override;
-	virtual void onOtherStatePushed() override;
 	virtual void onExitState() override;
 	virtual void update(float deltaTime) override;
 
 private:
-	ivec2 m_dir;
-	float m_time;
+	float m_time, m_speed, m_rotationAngle;
+	vec3 m_rotationCenter;
+	vec3 m_startPosition;
+	quat m_rotation;
+	quat m_startRotation;
+};
+
+class FallState : State<CubeComponent>
+{
+public:
+	FallState(CubeComponent* entity, float gravity, float maxSpeed);
+
+	virtual void onExitState() override;
+	virtual void update(float deltaTime) override;
+
+private:
+	float m_speed, m_gravity, m_maxSpeed;
 };

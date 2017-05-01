@@ -1,5 +1,5 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (GLFW Tests.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  cube_states.cpp
+  cube.cpp
 c:\users\julien\documents\cubz-opengl\libs\json\json.hpp(6683): warning C4003: not enough actual parameters for macro 'max'
 c:\users\julien\documents\cubz-opengl\libs\json\json.hpp(6689): warning C4003: not enough actual parameters for macro 'max'
 c:\users\julien\documents\cubz-opengl\libs\json\json.hpp(6695): warning C4003: not enough actual parameters for macro 'max'
@@ -23,5 +23,6 @@ c:\users\julien\documents\cubz-opengl\libs\json\json.hpp(6959): warning C4003: n
 c:\users\julien\documents\cubz-opengl\libs\json\json.hpp(6965): warning C4003: not enough actual parameters for macro 'max'
 c:\users\julien\documents\cubz-opengl\libs\json\json.hpp(6971): warning C4003: not enough actual parameters for macro 'max'
 c:\users\julien\documents\cubz-opengl\libs\json\json.hpp(7184): warning C4003: not enough actual parameters for macro 'max'
+c:\users\julien\documents\cubz-opengl\cubz\src\cube.cpp(53): warning C4172: returning address of local variable or temporary
   Cubz.vcxproj -> C:\Users\Julien\Documents\Cubz-OpenGL\Debug\Cubz.exe
   Cubz.vcxproj -> C:\Users\Julien\Documents\Cubz-OpenGL\Debug\Cubz.pdb (Partial PDB)

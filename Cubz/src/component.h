@@ -8,13 +8,6 @@ using json = nlohmann::json;
 
 class Entity;
 
-enum ComponentType
-{
-	MESH_RENDERER = 0,
-	STATE_MACHINE = 1,
-	CUBE = 2
-};
-
 class Component
 {
 public:

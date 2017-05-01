@@ -50,8 +50,6 @@ void Transform::setScale(float scale)
 
 void Transform::translate(const vec3& vec)
 {
-	if (vec != vec3(0, 0, 0))
-		std::cout << to_string(vec) << std::endl;
 	m_pos += vec;
 }
 
@@ -98,4 +96,16 @@ const float& Transform::scale() const
 float& Transform::scale()
 {
 	return m_scale;
+}
+
+vec3 Transform::worldToLocal(const vec3& pos)
+{
+	vec4 result = inverse(transformMatrix()) * vec4(pos, 1);
+	return vec3(result.x / result.w, result.y / result.w, result.z / result.w);
+}
+
+vec3 Transform::localToWorld(const vec3& pos)
+{
+	vec4 result = transformMatrix() * vec4(pos, 1);
+	return vec3(result.x / result.w, result.y / result.w, result.z / result.w);
 }
