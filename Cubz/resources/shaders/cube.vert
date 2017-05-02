@@ -1,9 +1,4 @@
-// Version du GLSL
-
 #version 150 core
-
-
-// Entrée Shader
 
 in vec3 in_Vertex;
 in vec2 in_texCoord;
@@ -11,9 +6,6 @@ in vec2 in_texCoord;
 out vec2 texCoord;
 
 uniform mat4 mvp;
-
-
-// Fonction main
 
 void main()
 {

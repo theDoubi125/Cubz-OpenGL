@@ -31,8 +31,8 @@
                 "mesh": {
                     "obj": "meshes/cube.obj",
                     "shader": {
-                        "vertex": "resources/shaders/cube.vert",
-                        "fragment": "resources/shaders/cube.frag"
+                        "vertex": "resources/shaders/basicLit.vert",
+                        "fragment": "resources/shaders/basicLit.frag"
                     }
                 }
             },

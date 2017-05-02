@@ -161,6 +161,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\configs\scenes\debugScene.json" />
+    <None Include="resources\shaders\basicLit.frag" />
+    <None Include="resources\shaders\basicLit.vert" />
     <None Include="resources\shaders\cube.frag" />
     <None Include="resources\shaders\cube.vert" />
     <None Include="resources\shaders\cursor.frag" />

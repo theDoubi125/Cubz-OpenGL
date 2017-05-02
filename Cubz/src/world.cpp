@@ -72,6 +72,7 @@ void WorldMesh::updateData()
 	
 	std::vector<std::vector<vec3> > vertices(BLOCK_TYPE_COUNT, std::vector<vec3>());
 	std::vector<std::vector<vec2> > uvs(BLOCK_TYPE_COUNT, std::vector<vec2>());
+	std::vector<std::vector<vec3> > normals(BLOCK_TYPE_COUNT, std::vector<vec3>());
 
 	int arrayPos[BLOCK_TYPE_COUNT];
 	memset(arrayPos, 0, BLOCK_TYPE_COUNT * sizeof(int));
@@ -84,7 +85,7 @@ void WorldMesh::updateData()
 
 	ivec3 directions[] =	{ IVEC_UP,		IVEC_RIGHT, IVEC_FORWARD, IVEC_DOWN,	IVEC_LEFT,		IVEC_BACK	};
 	ivec3 xVec[] =			{ IVEC_FORWARD,	IVEC_BACK,	IVEC_RIGHT, IVEC_BACK,		IVEC_FORWARD,	IVEC_LEFT	};
-	ivec3 yVec[] =			{ IVEC_RIGHT, IVEC_UP,	IVEC_UP,	IVEC_RIGHT,		IVEC_UP,		IVEC_UP		};
+	ivec3 yVec[] =			{ IVEC_RIGHT,	IVEC_UP,	IVEC_UP,	IVEC_RIGHT,		IVEC_UP,		IVEC_UP		};
 
 	//for each cell
 	for (int x = 0; x < worldDim.x; x++)
@@ -106,17 +107,23 @@ void WorldMesh::updateData()
 
 							vertices[m_world.getTile(pos)].push_back(center + 0.5f * (vec3)(-xVec[i] - yVec[i]));
 							uvs[m_world.getTile(pos)].push_back(ivec2(0, 0));
+							normals[m_world.getTile(pos)].push_back((vec3)directions[i]);
 							vertices[m_world.getTile(pos)].push_back(center + 0.5f * (vec3)(xVec[i] - yVec[i]));
 							uvs[m_world.getTile(pos)].push_back(ivec2(1, 0));
+							normals[m_world.getTile(pos)].push_back((vec3)directions[i]);
 							vertices[m_world.getTile(pos)].push_back(center + 0.5f * (vec3)(xVec[i] + yVec[i]));
 							uvs[m_world.getTile(pos)].push_back(ivec2(1, 1));
+							normals[m_world.getTile(pos)].push_back((vec3)directions[i]);
 
 							vertices[m_world.getTile(pos)].push_back(center + 0.5f * (vec3)(-xVec[i] + yVec[i]));
 							uvs[m_world.getTile(pos)].push_back(ivec2(0, 1));
+							normals[m_world.getTile(pos)].push_back((vec3)directions[i]);
 							vertices[m_world.getTile(pos)].push_back(center + 0.5f * (vec3)(-xVec[i] - yVec[i]));
 							uvs[m_world.getTile(pos)].push_back(ivec2(0, 0));
+							normals[m_world.getTile(pos)].push_back((vec3)directions[i]);
 							vertices[m_world.getTile(pos)].push_back(center + 0.5f * (vec3)(xVec[i] + yVec[i]));
 							uvs[m_world.getTile(pos)].push_back(ivec2(1, 1));
+							normals[m_world.getTile(pos)].push_back((vec3)directions[i]);
 						}
 					}
 				}
@@ -124,11 +131,11 @@ void WorldMesh::updateData()
 		}
 	}
 
-	Shader* shader = new Shader("resources/shaders/cube.vert", "resources/shaders/cube.frag");
+	Shader* shader = new Shader("resources/shaders/basicLit.vert", "resources/shaders/basicLit.frag");
 	shader->load();
 	for (int i = 0; i < BLOCK_TYPE_COUNT; i++)
 	{
-		setData(i, shader, vertices[i].size(), (float*)vertices[i].data(), (float*)uvs[i].data(), GL_STATIC_DRAW);
+		setData(i, shader, vertices[i].size(), (float*)vertices[i].data(), (float*)uvs[i].data(), (float*)normals[i].data(), GL_STATIC_DRAW);
 	}
 }
 
