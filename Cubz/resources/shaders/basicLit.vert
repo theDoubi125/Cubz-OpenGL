@@ -14,5 +14,7 @@ void main()
 {
     gl_Position = mvp * vec4(in_Vertex, 1.0);
 	texCoord = in_texCoord;
-	normal = in_normal;
+	vec4 worldNormal = (mvp * vec4(in_normal, 1.0) - mvp * vec4(0, 0, 0, 1.0));
+	normal = worldNormal.xyz;
+	 
 }

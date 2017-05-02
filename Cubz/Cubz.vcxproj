@@ -124,6 +124,7 @@
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\component.cpp" />
     <ClCompile Include="src\cube.cpp" />
+    <ClCompile Include="src\cube_states.cpp" />
     <ClCompile Include="src\entity.cpp" />
     <ClCompile Include="src\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="src\input.cpp" />
@@ -143,6 +144,7 @@
     <ClInclude Include="src\camera.h" />
     <ClInclude Include="src\component.h" />
     <ClInclude Include="src\cube.h" />
+    <ClInclude Include="src\cube_states.h" />
     <ClInclude Include="src\entity.h" />
     <ClInclude Include="src\factory.h" />
     <ClInclude Include="src\imgui_impl_glfw_gl3.h" />

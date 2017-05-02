@@ -18,6 +18,11 @@ void InputListener::startListening()
 	Input::instance.addListener(this);
 }
 
+void InputListener::stopListening()
+{
+	Input::instance.removeListener(this);
+}
+
 Input::Input()
 {
 	

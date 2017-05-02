@@ -31,6 +31,9 @@ public:
 	quat& rotation();
 	float& scale();
 
+	vec3 worldToLocal(const vec3& pos);
+	vec3 localToWorld(const vec3& pos);
+
 private:
 	vec3 m_pos;
 	quat m_rot;

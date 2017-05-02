@@ -8,13 +8,6 @@ using json = nlohmann::json;
 
 class Entity;
 
-enum ComponentType
-{
-	MESH_RENDERER = 0,
-	STATE_MACHINE = 1,
-	CUBE = 2
-};
-
 class Component
 {
 public:
@@ -32,6 +25,7 @@ public:
 	virtual const std::string& getName() const = 0;
 
 	void setEntity(Entity* entity);
+	Entity& getEntity() { return *m_entity; }
 
 protected:
 	Entity* m_entity;

@@ -21,8 +21,10 @@ void World::setTile(ivec3 pos, int value)
 	m_data[id] = value;
 }
 
-int World::getTile(ivec3 pos) const
+int World::getTile(ivec3 pos, bool checkBounds) const
 {
+	if (checkBounds && !isInBound(pos))
+		return 0;
 	return m_data[pos.x + pos.y * m_size.x + pos.z * m_size.x * m_size.y];
 }
 

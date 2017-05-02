@@ -1,8 +1,13 @@
+#include <glad/glad.h>
+#include <imgui.h>
+
 #include "entity.h"
 #include "cube.h"
 #include "input.h"
+#include "cube_states.h"
+#include "world.h"
 
-CubeComponent::CubeComponent() : Component(), m_stateMachine(NULL)
+CubeComponent::CubeComponent() : Component(), m_stateMachine(NULL), m_world(NULL), m_currentCell(0, 0, 0)
 {
 	
 }
@@ -14,11 +19,13 @@ CubeComponent::~CubeComponent()
 
 void CubeComponent::init(json descr)
 {
-	Input::instance.addListener(this);
+	startListening();
+	m_stateMachine = new StateMachine<CubeComponent>((State<CubeComponent>*)new IdleState(this));
 }
 
 void CubeComponent::update(float deltaTime)
 {
+	m_stateMachine->update(deltaTime);
 	//m_entity->transform().translate(vec3(m_inputVec.x, 0, m_inputVec.y) * deltaTime);
 }
 
@@ -31,16 +38,14 @@ Component* CubeComponent::clone() const
 
 void CubeComponent::start()
 {
+	m_world = &((WorldComponent*)m_entity->getScene().getEntity("World")->getComponent("World"))->world();
+	m_currentCell = (ivec3)m_entity->transform().position();
 	startListening();
 }
 
-void CubeComponent::render() const
-{
-
-}
 void CubeComponent::debugUI()
 {
-
+	ImGui::InputInt3("Cell", (int*)&m_currentCell);
 }
 
 const std::string& CubeComponent::getName() const
@@ -48,58 +53,44 @@ const std::string& CubeComponent::getName() const
 	return "Cube";
 }
 
+World& CubeComponent::getWorld()
+{
+	return *m_world;
+}
+
+void CubeComponent::changeCell(const ivec3& cellDisp)
+{
+	m_currentCell += cellDisp;
+}
+
+void CubeComponent::setCell(const ivec3& cell)
+{
+	m_currentCell = cell;
+}
+
 void CubeComponent::onKeyPressed(int key)
 {
-	if (key == GLFW_KEY_UP)
-	{
-		m_inputVec.y = 1;
-		m_upInput = true;
-	}
-	if (key == GLFW_KEY_DOWN)
-	{
-		m_inputVec.y = -1;
-		m_downInput = true;
-	}
-	if (key == GLFW_KEY_LEFT)
-	{
-		m_inputVec.x = -1;
-		m_leftInput = true;
-	}
+	ivec2 lastInputDir = m_inputDir;
 	if (key == GLFW_KEY_RIGHT)
-	{
-		m_inputVec.x = 1;
-		m_rightInput = true;
-	}
+		m_inputDir = ivec2(1, 0);
+	if (key == GLFW_KEY_LEFT)
+		m_inputDir = ivec2(-1, 0);
+	if (key == GLFW_KEY_UP)
+		m_inputDir = ivec2(0, 1);
+	if (key == GLFW_KEY_DOWN)
+		m_inputDir = ivec2(0, -1);
 }
 
 void CubeComponent::onKeyReleased(int key)
 {
-	if (key == GLFW_KEY_UP)
-	{
-		m_upInput = false;
-		m_inputVec.y = 0;
-		if (m_downInput)
-			m_inputVec.y = -1;
-	}
-	if (key == GLFW_KEY_DOWN)
-	{
-		m_downInput = false;
-		m_inputVec.y = 0;
-		if (m_upInput)
-			m_inputVec.y = 1;
-	}
-	if (key == GLFW_KEY_LEFT)
-	{
-		m_leftInput = false;
-		m_inputVec.x = 0;
-		if (m_rightInput)
-			m_inputVec.y = 1;
-	}
-	if (key == GLFW_KEY_RIGHT)
-	{
-		m_rightInput = false;
-		m_inputVec.x = 0;
-		if (m_leftInput)
-			m_inputVec.y = -1;
-	}
+	ivec2 lastInputDir = m_inputDir;
+	if (key == GLFW_KEY_RIGHT || key == GLFW_KEY_LEFT)
+		m_inputDir = ivec2(0, lastInputDir.y);
+	if (key == GLFW_KEY_UP || key == GLFW_KEY_DOWN)
+		m_inputDir = ivec2(lastInputDir.x, 0);
+}
+
+const ivec2& CubeComponent::getInputDir() const
+{
+	return m_inputDir;
 }

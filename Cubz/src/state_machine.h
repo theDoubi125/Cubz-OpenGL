@@ -21,12 +21,25 @@ public:
 
 	}
 
-	virtual void onPushed() = 0;
-	virtual void onEnterState() = 0;
-	virtual void onOtherStatePushed() = 0;
-	virtual void onExitState() = 0;
-	virtual void update(float deltaTime) = 0;
-private:
+	virtual void onPushed() {}
+	virtual void onEnterState() {}
+	virtual void onOtherStatePushed() {}
+	virtual void onExitState() {}
+	virtual void update(float deltaTime) {}
+
+	void pushState(State<T>* state)
+	{
+		StateMachine<T> &machine = m_entity->getStateMachine();
+		machine.pushState(state);
+	}
+
+	void popState()
+	{
+		StateMachine<T> &machine = m_entity->getStateMachine();
+		machine.popState();
+	}
+
+protected:
 	T* m_entity;
 };
 
@@ -37,6 +50,8 @@ public:
 	StateMachine(State<T>* initState)
 	{
 		m_states.push(initState);
+		initState->onPushed();
+		initState->onEnterState();
 	}
 
 	~StateMachine()
@@ -48,16 +63,21 @@ public:
 		}
 	}
 
-	void pushState(State<T*> state)
+	void pushState(State<T>* state)
 	{
-		m_states.top()->onOtherStatePushed();
+		if (!m_states.empty())
+		{
+			m_states.top()->onOtherStatePushed();
+		}
 		state->onPushed();
+		state->onEnterState();
 		m_states.push(state);
 	}
 
-	void changeState(State<T*> state)
+	void changeState(State<T>* state)
 	{
-		State<T*> toPop = m_states.pop();
+		State<T*> toPop = m_states.top();
+		m_states.pop();
 		toPop->onExitState();
 		delete toPop;
 		state->onPushed();
@@ -66,14 +86,15 @@ public:
 
 	void popState()
 	{
-		State<T*> state = m_states.pop();
+		State<T>* state = m_states.top();
+		m_states.pop();
 		state->onExitState();
 		delete state;
 		if (m_states.size() == 0)
 		{
 			throw std::exception("Empty state stack");
 		}
-		m_states.top().onEnterState();
+		m_states.top()->onEnterState();
 	}
 
 	void update(float deltaTime)

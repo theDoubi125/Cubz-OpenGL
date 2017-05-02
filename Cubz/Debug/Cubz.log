@@ -1,4 +1,121 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (GLFW Tests.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  world.cpp
+  transform.cpp
   mesh.cpp
+  input.cpp
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\input.cpp(64): warning C4018: '<' : incompatibilité signed/unsigned
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\input.cpp(70): warning C4018: '<' : incompatibilité signed/unsigned
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\input.cpp(76): warning C4018: '<' : incompatibilité signed/unsigned
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\input.cpp(86): warning C4018: '<' : incompatibilité signed/unsigned
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\input.cpp(98): warning C4018: '<' : incompatibilité signed/unsigned
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\input.cpp(104): warning C4018: '<' : incompatibilité signed/unsigned
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\input.cpp(110): warning C4018: '<' : incompatibilité signed/unsigned
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\input.cpp(120): warning C4018: '<' : incompatibilité signed/unsigned
+  cube_states.cpp
+  cube.cpp
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6683): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6689): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6695): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6701): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6715): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6715): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6721): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6721): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6727): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6727): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6733): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6733): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6750): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6756): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6762): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6768): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6925): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6931): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6937): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6959): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6965): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6971): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(7184): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+  Génération de code en cours...
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\cube.cpp(53): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\world.h(54): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
+  Compilation en cours...
+  world_editor.cpp
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6683): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6689): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6695): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6701): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6715): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6715): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6721): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6721): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6727): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6727): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6733): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6733): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6750): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6756): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6762): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6768): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6925): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6931): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6937): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6959): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6965): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6971): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(7184): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+  window.cpp
+  scene.cpp
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\scene.cpp(20): warning C4018: '<' : incompatibilité signed/unsigned
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\scene.cpp(44): warning C4018: '<' : incompatibilité signed/unsigned
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\scene.cpp(55): warning C4018: '<' : incompatibilité signed/unsigned
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\scene.cpp(88): warning C4018: '<' : incompatibilité signed/unsigned
+  mesh_render.cpp
+  main.cpp
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\main.cpp(23): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\main.cpp(33): warning C4244: 'argument' : conversion de 'double' en 'int', perte possible de données
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\main.cpp(64): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  entity.cpp
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6683): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6689): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6695): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6701): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6715): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6715): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6721): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6721): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6727): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6727): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6733): warning C4003: nombre de paramètres réels insuffisants pour la macro 'min'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6733): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6750): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6756): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6762): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6768): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6925): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6931): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6937): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6959): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6965): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(6971): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\libs\json\json.hpp(7184): warning C4003: nombre de paramètres réels insuffisants pour la macro 'max'
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\entity.cpp(122): warning C4305: 'argument' : troncation de 'double' à 'float'
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\entity.cpp(123): warning C4305: 'argument' : troncation de 'double' à 'float'
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\entity.cpp(124): warning C4305: 'argument' : troncation de 'double' à 'float'
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\entity.cpp(133): warning C4305: 'argument' : troncation de 'double' à 'float'
+  component.cpp
+  camera.cpp
+  Génération de code en cours...
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\camera.cpp(36): warning C4172: retourne l'adresse d'une variable locale ou : result temporaire
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\camera.cpp(26): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\camera.cpp(41): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\camera.cpp(174): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\component.cpp(70): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\factory.h(15): warning C4715: 'Factory<std::basic_string<char,std::char_traits<char>,std::allocator<char> >,Component>::createInstance' : les chemins de contrôle ne retournent pas tous une valeur
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\mesh_render.h(27): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
+g:\documents\julien\projets\c++\cubz-opengl\cubz\src\world_editor.h(22): warning C4172: retourne l'adresse d'une variable locale ou  temporaire
+LINK : warning LNK4098: conflit entre la bibliothÞque par dÚfaut 'MSVCRT' et les autres bibliothÞquesá; utilisez /NODEFAULTLIB:library
+resource_manager.obj : warning LNK4099: PDB 'vc140.pdb' n'a pu Ûtre trouvÚ avec 'resource_manager.obj' ou sur 'G:\Documents\Julien\Projets\C++\Cubz-OpenGL\Debug\vc140.pdb'á; l'objet sera liÚ sans informations de dÚbogage
+imgui_impl_glfw_gl3.obj : warning LNK4099: PDB 'vc140.pdb' n'a pu Ûtre trouvÚ avec 'imgui_impl_glfw_gl3.obj' ou sur 'G:\Documents\Julien\Projets\C++\Cubz-OpenGL\Debug\vc140.pdb'á; l'objet sera liÚ sans informations de dÚbogage
   Cubz.vcxproj -> G:\Documents\Julien\Projets\C++\Cubz-OpenGL\Debug\Cubz.exe
   Cubz.vcxproj -> G:\Documents\Julien\Projets\C++\Cubz-OpenGL\Debug\Cubz.pdb (Partial PDB)
