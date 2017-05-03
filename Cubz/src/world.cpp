@@ -152,11 +152,6 @@ Component* WorldComponent::clone() const
 
 void WorldComponent::init(json descr)
 {
-	for (int i = 0; i < 5; i++)
-	{
-		m_world.setTile(ivec3(1+i, 0, 1), 1);
-
-	}
 	m_mesh.updateData();
 }
 

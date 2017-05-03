@@ -22,6 +22,10 @@ public:
 		return m_activeCamera;
 	}
 
+	vec3 forward() const;
+	vec3 right() const;
+	vec3 up() const;
+
 private:
 	static Camera* m_activeCamera;
 };

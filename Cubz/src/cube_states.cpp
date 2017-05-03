@@ -8,6 +8,7 @@
 #include "cube_states.h"
 #include "entity.h"
 #include "world.h"
+#include "camera.h"
 
 void IdleState::update(float deltaTime)
 {
@@ -15,9 +16,22 @@ void IdleState::update(float deltaTime)
 	m_entity->setCell(cell);
 
 	const ivec2& inputDir = m_entity->getInputDir();
-	const ivec3 worldInputDir = ivec3(inputDir.x, 0, inputDir.y);
+	vec3 worldDir = Camera::ActiveCamera()->right() * (float)inputDir.x + Camera::ActiveCamera()->forward() * (float)inputDir.y;
+	if (abs(worldDir.x) > abs(worldDir.z))
+		worldDir.z = 0;
+	else worldDir.x = 0;
+	ivec3 worldInputDir = (ivec3)worldDir;
+
+	if (worldDir.x > 0)
+		worldInputDir.x = 1;
+	if (worldDir.x < 0)
+		worldInputDir.x = -1;
+	if (worldDir.z > 0)
+		worldInputDir.z = 1;
+	if (worldDir.z < 0)
+		worldInputDir.z = -1;
+
 	ivec3 targetCell = m_entity->getCell() + worldInputDir;
-	vec3 movementDir(inputDir.x, 0, inputDir.y);
 	int tile = m_entity->getWorld().getTile(targetCell);
 	const World& world = m_entity->getWorld();
 	if (world.isInBound(m_entity->getCell() + IVEC_DOWN) && world.getTile(m_entity->getCell() + IVEC_DOWN) == 0)
@@ -29,12 +43,12 @@ void IdleState::update(float deltaTime)
 	{
 		if (!world.isInBound(targetCell) || tile == 0)
 		{
-			pushState((State<CubeComponent>*)new RollState(m_entity, (movementDir + VEC_DOWN) * 0.5f, angleAxis(-pi<float>() / 2, cross(movementDir, VEC_UP)), 1));
+			pushState((State<CubeComponent>*)new RollState(m_entity, ((vec3)worldInputDir + VEC_DOWN) * 0.5f, angleAxis(-pi<float>() / 2, cross((vec3)worldInputDir, VEC_UP)), 1));
 			return;
 		}
 		else if (world.getTile(targetCell + IVEC_UP) == 0 && world.getTile(m_entity->getCell()) == 0)
 		{
-			pushState((State<CubeComponent>*)new RollState(m_entity, (movementDir + VEC_UP) * 0.5f, angleAxis(pi<float>(), cross(movementDir, VEC_UP)), 1));
+			pushState((State<CubeComponent>*)new RollState(m_entity, ((vec3)worldInputDir + VEC_UP) * 0.5f, angleAxis(pi<float>(), cross((vec3)worldInputDir, VEC_UP)), 1));
 			return;
 		}
 	}

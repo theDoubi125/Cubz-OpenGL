@@ -46,6 +46,21 @@ void Camera::activate()
 	m_activeCamera = this;
 }
 
+vec3 Camera::forward() const
+{
+	return VEC_FORWARD * inverse(m_entity->transform().rotation());
+}
+
+vec3 Camera::up() const
+{
+	return VEC_UP * inverse(m_entity->transform().rotation());
+}
+
+vec3 Camera::right() const
+{
+	return VEC_RIGHT * inverse(m_entity->transform().rotation());
+}
+
 
 void FreeCamera::init(json descr)
 {
