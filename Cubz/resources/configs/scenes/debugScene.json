@@ -29,11 +29,12 @@
             "Test": { },
             "MeshRenderer": {
                 "mesh": {
-                    "obj": "meshes/cube.obj",
-                    "shader": {
-                        "vertex": "resources/shaders/basicLit.vert",
-                        "fragment": "resources/shaders/basicLit.frag"
-                    }
+                  "obj": "meshes/cube.obj",
+                  "shader": {
+                    "vertex": "resources/shaders/basicLit.vert",
+                    "fragment": "resources/shaders/basicLit.frag"
+                  },
+                  "color": [ 1, 0, 0 ]
                 }
             },
             "Cube": { }
@@ -61,10 +62,11 @@
           "WorldEditor": {
             "mesh": {
                     "obj": "meshes/cube.obj",
-                    "shader": {
-                        "vertex": "resources/shaders/cube.vert",
-                        "fragment": "resources/shaders/cursor.frag"
-                    }
+              "shader": {
+                "vertex": "resources/shaders/cube.vert",
+                "fragment": "resources/shaders/cursor.frag"
+              },
+              "color": [ 0, 0, 1 ]
                 }
           }
 

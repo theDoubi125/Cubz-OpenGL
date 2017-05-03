@@ -150,9 +150,7 @@ void Texture::init(ivec2 dim)
 
 	glBindTexture(GL_TEXTURE_2D, m_id);
 
-	glTexImage2D(GL_TEXTURE_2D, 0, 4, dim.x,
-		dim.y, 0, GL_RGBA, GL_UNSIGNED_BYTE,
-		m_pixels);
+	glTexImage2D(GL_TEXTURE_2D, 0, 4, dim.x, dim.y, 0, GL_RGBA, GL_UNSIGNED_BYTE, m_pixels);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);

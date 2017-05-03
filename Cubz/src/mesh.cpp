@@ -19,6 +19,13 @@ void Mesh::initData(int partCount)
 {
 	m_partCount = partCount;
 
+	vec3 colors[] = { vec3(0, 0, 0), vec3(1, 0, 0), vec3(0, 1, 0), vec3(0, 0, 1), vec3(1, 1, 0), vec3(1, 0, 1), vec3(0, 1, 1), vec3(1, 1, 1) };
+
+	for (int i = 0; i < 8; i++)
+	{
+		m_colors[i] = colors[i];
+	}
+
 	glGenBuffers(partCount, m_vbos);
 	glGenVertexArrays(partCount, m_vaos);
 
@@ -32,6 +39,7 @@ void Mesh::setData(int partId, Shader* shader, int vertexCount, float* vertex, f
 	m_modelAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "model");
 	m_viewAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "view");
 	m_projectionAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "projection");
+	m_colorAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "cubeColor");
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbos[partId]);
 		glBufferData(GL_ARRAY_BUFFER, vertexCount * sizeof(float) * 8, 0, drawType);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, vertexCount * sizeof(float) * 3, vertex);
@@ -49,6 +57,53 @@ void Mesh::setData(int partId, Shader* shader, int vertexCount, float* vertex, f
 			glEnableVertexAttribArray(2);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
+}
+
+void Mesh::render(mat4 transformMatrix) const
+{
+	for (int i = 0; i < m_partCount; i++)
+	{
+		glUseProgram(m_shaders[i]->getProgramId());
+		mat4 viewMatrix = Camera::ActiveCamera()->getViewMatrix();
+		mat4 projectionMatrix = Camera::ActiveCamera()->getProjectionMatrix();
+		glUniformMatrix4fv(m_modelAttribs[i], 1, GL_FALSE, value_ptr(transformMatrix));
+		glUniformMatrix4fv(m_viewAttribs[i], 1, GL_FALSE, value_ptr(viewMatrix));
+		glUniformMatrix4fv(m_projectionAttribs[i], 1, GL_FALSE, value_ptr(projectionMatrix));
+		glUniform3f(m_colorAttribs[i], m_colors[i].x, m_colors[i].y, m_colors[i].z);
+		glBindVertexArray(m_vaos[i]);
+		glDrawArrays(GL_TRIANGLES, 0, m_vertexCount[i]);
+		glBindVertexArray(0);
+	}
+	glUseProgram(0);
+}
+
+
+void Mesh::render(mat4 transformMatrix, int partId) const
+{
+	mat4 viewMatrix = Camera::ActiveCamera()->getViewMatrix();
+	mat4 projectionMatrix = Camera::ActiveCamera()->getProjectionMatrix();
+	glUniformMatrix4fv(m_modelAttribs[partId], 1, GL_FALSE, value_ptr(transformMatrix));
+	glUniformMatrix4fv(m_viewAttribs[partId], 1, GL_FALSE, value_ptr(viewMatrix));
+	glUniformMatrix4fv(m_projectionAttribs[partId], 1, GL_FALSE, value_ptr(projectionMatrix));
+	glUniform3f(m_colorAttribs[partId], m_colors[partId].x, m_colors[partId].y, m_colors[partId].z);
+	glBindVertexArray(m_vaos[partId]);
+	glDrawArrays(GL_TRIANGLES, 0, m_vertexCount[partId]);
+	glBindVertexArray(0);
+}
+
+int Mesh::getPartCount() const
+{
+	return m_partCount;
+}
+
+void Mesh::bindShader(int partId) const
+{
+}
+
+void Mesh::setColor(vec3 color)
+{
+	for (int i = 0; i < m_partCount; i++)
+		m_colors[i] = color;
 }
 
 LoadedMesh::LoadedMesh()
@@ -92,22 +147,11 @@ void LoadedMesh::init(json descr)
 	Shader* shader = Shader::getShader(descr["shader"]);
 	initData(1);
 	setData(0, shader, vertexCount, vertex, uv, normals);
-}
 
-void Mesh::render(mat4 transformMatrix) const
-{
-	for (int i = 0; i < m_partCount; i++)
-	{
-		glUseProgram(m_shaders[i]->getProgramId());
-		int shaderId = m_shaders[i]->getProgramId();
-		mat4 viewMatrix = Camera::ActiveCamera()->getViewMatrix();
-		mat4 projectionMatrix = Camera::ActiveCamera()->getProjectionMatrix();
-		glUniformMatrix4fv(m_modelAttribs[i], 1, GL_FALSE, value_ptr(transformMatrix));
-		glUniformMatrix4fv(m_viewAttribs[i], 1, GL_FALSE, value_ptr(viewMatrix));
-		glUniformMatrix4fv(m_projectionAttribs[i], 1, GL_FALSE, value_ptr(projectionMatrix));
-		glBindVertexArray(m_vaos[i]);
-		glDrawArrays(GL_TRIANGLES, 0, m_vertexCount[i]);
-		glBindVertexArray(0);
-		glUseProgram(0);
-	}
+	vec3 color;
+	json colorDescr = descr["color"];
+	color.r = colorDescr[0];
+	color.g = colorDescr[1];
+	color.b = colorDescr[2];
+	setColor(color);
 }
