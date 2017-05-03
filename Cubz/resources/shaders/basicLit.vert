@@ -8,13 +8,15 @@ in vec3 in_normal;
 out vec2 texCoord;
 out vec3 normal;
 
-uniform mat4 mvp;
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
 
 void main()
 {
-    gl_Position = mvp * vec4(in_Vertex, 1.0);
+    gl_Position = projection * view * model * vec4(in_Vertex, 1.0);
 	texCoord = in_texCoord;
-	vec4 worldNormal = (mvp * vec4(in_normal, 1.0) - mvp * vec4(0, 0, 0, 1.0));
+	vec4 worldNormal = (model * vec4(in_normal, 1.0) - model * vec4(0, 0, 0, 1.0));
 	normal = worldNormal.xyz;
 	 
 }

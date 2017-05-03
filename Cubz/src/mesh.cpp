@@ -29,7 +29,9 @@ void Mesh::initData(int partCount)
 void Mesh::setData(int partId, Shader* shader, int vertexCount, float* vertex, float* uv, float* normals, GLuint drawType)
 {
 	m_shaders[partId] = shader;
-	m_mvpAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "mvp");
+	m_modelAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "model");
+	m_viewAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "view");
+	m_projectionAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "projection");
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbos[partId]);
 		glBufferData(GL_ARRAY_BUFFER, vertexCount * sizeof(float) * 8, 0, drawType);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, vertexCount * sizeof(float) * 3, vertex);
@@ -100,7 +102,9 @@ void Mesh::render(mat4 transformMatrix) const
 		int shaderId = m_shaders[i]->getProgramId();
 		mat4 viewMatrix = Camera::ActiveCamera()->getViewMatrix();
 		mat4 projectionMatrix = Camera::ActiveCamera()->getProjectionMatrix();
-		glUniformMatrix4fv(m_mvpAttribs[i], 1, GL_FALSE, value_ptr(projectionMatrix * viewMatrix * transformMatrix));
+		glUniformMatrix4fv(m_modelAttribs[i], 1, GL_FALSE, value_ptr(transformMatrix));
+		glUniformMatrix4fv(m_viewAttribs[i], 1, GL_FALSE, value_ptr(viewMatrix));
+		glUniformMatrix4fv(m_projectionAttribs[i], 1, GL_FALSE, value_ptr(projectionMatrix));
 		glBindVertexArray(m_vaos[i]);
 		glDrawArrays(GL_TRIANGLES, 0, m_vertexCount[i]);
 		glBindVertexArray(0);

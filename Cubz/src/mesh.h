@@ -28,7 +28,9 @@ private:
 	int m_vertexCount[PART_COUNT_MAX];
 	int m_partCount;
 
-	GLuint m_mvpAttribs[PART_COUNT_MAX];
+	GLuint m_modelAttribs[PART_COUNT_MAX];
+	GLuint m_viewAttribs[PART_COUNT_MAX];
+	GLuint m_projectionAttribs[PART_COUNT_MAX];
 };
 
 class LoadedMesh : public Mesh
