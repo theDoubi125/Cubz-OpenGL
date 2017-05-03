@@ -26,14 +26,15 @@ void Mesh::initData(int partCount)
 	memset(m_shaders, NULL, partCount);
 }
 
-void Mesh::setData(int partId, Shader* shader, int vertexCount, float* vertex, float* uv, GLuint drawType)
+void Mesh::setData(int partId, Shader* shader, int vertexCount, float* vertex, float* uv, float* normals, GLuint drawType)
 {
 	m_shaders[partId] = shader;
 	m_mvpAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "mvp");
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbos[partId]);
-		glBufferData(GL_ARRAY_BUFFER, vertexCount * sizeof(float) * 5, 0, drawType);
+		glBufferData(GL_ARRAY_BUFFER, vertexCount * sizeof(float) * 8, 0, drawType);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, vertexCount * sizeof(float) * 3, vertex);
 		glBufferSubData(GL_ARRAY_BUFFER, vertexCount * sizeof(float) * 3, vertexCount * sizeof(float) * 2, uv);
+		glBufferSubData(GL_ARRAY_BUFFER, vertexCount * sizeof(float) * 5, vertexCount * sizeof(float) * 3, normals);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	m_vertexCount[partId] = vertexCount;
 	glBindVertexArray(m_vaos[partId]);
@@ -42,6 +43,8 @@ void Mesh::setData(int partId, Shader* shader, int vertexCount, float* vertex, f
 			glEnableVertexAttribArray(0);
 			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(vertexCount * sizeof(float) * 3));
 			glEnableVertexAttribArray(1);
+			glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(vertexCount * sizeof(float) * 5));
+			glEnableVertexAttribArray(2);
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
@@ -68,20 +71,25 @@ void LoadedMesh::init(json descr)
 	int vertexCount = indices.size();
 	float vertex[MAX_VERTEX_COUNT * 3];
 	float uv[MAX_VERTEX_COUNT * 2];
+	float normals[MAX_VERTEX_COUNT * 3];
 	for (int i = 0; i < vertexCount; i++)
 	{
 		int vertexId = 3 * indices[i].vertex_index;
 		int uvId = 2 * indices[i].texcoord_index;
+		int normalId = 3 * indices[i].normal_index;
 		vertex[i * 3] = attrib.vertices[vertexId];
 		vertex[i * 3 + 1] = attrib.vertices[vertexId + 1];
 		vertex[i * 3 + 2] = attrib.vertices[vertexId + 2];
 		uv[i * 2] = attrib.texcoords[uvId];
 		uv[i * 2 + 1] = attrib.texcoords[uvId + 1];
+		normals[i * 3] = attrib.normals[normalId];
+		normals[i * 3 + 1] = attrib.normals[normalId + 1];
+		normals[i * 3 + 2] = attrib.normals[normalId + 2];
 	}
 
 	Shader* shader = Shader::getShader(descr["shader"]);
 	initData(1);
-	setData(0, shader, vertexCount, vertex, uv);
+	setData(0, shader, vertexCount, vertex, uv, normals);
 }
 
 void Mesh::render(mat4 transformMatrix) const

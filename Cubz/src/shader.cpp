@@ -49,7 +49,7 @@ void Shader::load()
 
 	glBindAttribLocation(m_programId, 0, "in_Vertex");
 	glBindAttribLocation(m_programId, 1, "in_texCoord");
-	glBindAttribLocation(m_programId, 2, "in_color");
+	glBindAttribLocation(m_programId, 2, "in_normal");
 
 	glLinkProgram(m_programId);
 

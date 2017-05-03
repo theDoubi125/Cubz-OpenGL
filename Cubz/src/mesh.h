@@ -18,7 +18,7 @@ public:
 	virtual ~Mesh();
 
 	void initData(int partCount);
-	void setData(int partId, Shader* shader, int vertexCount, float* vertex, float* uv, GLuint drawType = GL_STATIC_DRAW);
+	void setData(int partId, Shader* shader, int vertexCount, float* vertex, float* uv, float* normals, GLuint drawType = GL_STATIC_DRAW);
 	void render(mat4 transformMatrix) const;
 
 private:

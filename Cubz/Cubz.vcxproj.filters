@@ -170,6 +170,12 @@
     <None Include="resources\shaders\cursor.frag">
       <Filter>resources</Filter>
     </None>
+    <None Include="resources\shaders\basicLit.vert">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\shaders\basicLit.frag">
+      <Filter>resources</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Cubz.rc" />
