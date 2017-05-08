@@ -19,7 +19,7 @@ public:
 
 	void initData(int partCount);
 	void setData(int partId, Shader* shader, int vertexCount, float* vertex, float* uv, float* normals, GLuint drawType = GL_STATIC_DRAW);
-	void render(mat4 transformMatrix) const;
+	void render(mat4 transformMatrix, vec3 lightDir) const;
 	void render(mat4 transformMatrix, int partId) const;
 	int getPartCount() const;
 
@@ -37,6 +37,7 @@ private:
 	GLuint m_modelAttribs[PART_COUNT_MAX];
 	GLuint m_viewAttribs[PART_COUNT_MAX];
 	GLuint m_projectionAttribs[PART_COUNT_MAX];
+	GLuint m_lightDirAttribs[PART_COUNT_MAX];
 
 	GLuint m_colorAttribs[PART_COUNT_MAX];
 

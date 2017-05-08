@@ -60,6 +60,10 @@ void Scene::debugUI()
 			ImGui::TreePop();
 		}
 	}
+	for (int i = 0; i < m_entities.size(); i++)
+	{
+		m_entities[i]->debugUISpecial();
+	}
 }
 
 void Scene::addEntity(Entity* entity)

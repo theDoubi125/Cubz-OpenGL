@@ -169,7 +169,7 @@ void WorldComponent::updateRender()
 
 void WorldComponent::render() const
 {
-	m_mesh.render(m_entity->transform().transformMatrix());
+	m_mesh.render(m_entity->transform().transformMatrix(), vec3(1, 0.5f, 0.3f));
 }
 
 World& WorldComponent::world()

@@ -37,6 +37,7 @@ void Mesh::setData(int partId, Shader* shader, int vertexCount, float* vertex, f
 {
 	m_shaders[partId] = shader;
 	m_modelAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "model");
+	m_lightDirAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "lightDir");
 	m_viewAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "view");
 	m_projectionAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "projection");
 	m_colorAttribs[partId] = glGetUniformLocation(m_shaders[partId]->getProgramId(), "cubeColor");
@@ -59,7 +60,7 @@ void Mesh::setData(int partId, Shader* shader, int vertexCount, float* vertex, f
 	glBindVertexArray(0);
 }
 
-void Mesh::render(mat4 transformMatrix) const
+void Mesh::render(mat4 transformMatrix, vec3 lightDir) const
 {
 	for (int i = 0; i < m_partCount; i++)
 	{
@@ -69,6 +70,7 @@ void Mesh::render(mat4 transformMatrix) const
 		glUniformMatrix4fv(m_modelAttribs[i], 1, GL_FALSE, value_ptr(transformMatrix));
 		glUniformMatrix4fv(m_viewAttribs[i], 1, GL_FALSE, value_ptr(viewMatrix));
 		glUniformMatrix4fv(m_projectionAttribs[i], 1, GL_FALSE, value_ptr(projectionMatrix));
+		glUniform3f(m_lightDirAttribs[i], lightDir.x, lightDir.y, lightDir.z);
 		glUniform3f(m_colorAttribs[i], m_colors[i].x, m_colors[i].y, m_colors[i].z);
 		glBindVertexArray(m_vaos[i]);
 		glDrawArrays(GL_TRIANGLES, 0, m_vertexCount[i]);

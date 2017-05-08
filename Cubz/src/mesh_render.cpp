@@ -48,7 +48,7 @@ void MeshRenderer::update(float deltaTime)
 
 void MeshRenderer::render() const
 {
-	m_mesh->render(m_entity->transform().transformMatrix());
+	m_mesh->render(m_entity->transform().transformMatrix(), vec3(1, 0.5f, 0.3f));
 }
 
 void MeshRenderer::debugUI()

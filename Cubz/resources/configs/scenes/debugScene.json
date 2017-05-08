@@ -34,7 +34,7 @@
                     "vertex": "resources/shaders/basicLit.vert",
                     "fragment": "resources/shaders/basicLit.frag"
                   },
-                  "color": [ 1, 0, 0 ]
+                  "color": [ 0, 1, 0 ]
                 }
             },
             "Cube": { }
@@ -63,7 +63,7 @@
             "mesh": {
                     "obj": "meshes/cube.obj",
               "shader": {
-                "vertex": "resources/shaders/cube.vert",
+                "vertex": "resources/shaders/basicLit.vert",
                 "fragment": "resources/shaders/cursor.frag"
               },
               "color": [ 0, 0, 1 ]

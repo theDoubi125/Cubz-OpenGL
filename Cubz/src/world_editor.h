@@ -17,6 +17,7 @@ public:
 	virtual void update(float deltaTime) override;
 	virtual void render() const override;
 	virtual void debugUI() override;
+	virtual void debugUISpecial() override;
 
 	virtual Component* clone() const override;
 	virtual const std::string& getName() const override { return "WorldEditor"; }
@@ -35,4 +36,5 @@ private:
 	Transform m_cursorTransform;
 	WorldComponent* m_world;
 	bool m_mousePressed;
+	bool m_isActive;
 };

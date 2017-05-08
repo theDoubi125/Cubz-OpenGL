@@ -19,6 +19,7 @@ public:
 	virtual void updatePaused(float deltaTime) {}
 	virtual void render() const {}
 	virtual void debugUI() {}
+	virtual void debugUISpecial() {}
 	
 	virtual Component* clone() const = 0;
 

@@ -49,7 +49,7 @@ void WorldEditor::render() const
 {
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	m_cursorMesh->render(m_cursorTransform.transformMatrix());
+	m_cursorMesh->render(m_cursorTransform.transformMatrix(), vec3(1, 0.5f, 0.3f));
 	glEnable(GL_DEPTH_TEST);
 	glDisable(GL_BLEND);
 }
@@ -57,6 +57,13 @@ void WorldEditor::render() const
 void WorldEditor::debugUI()
 {
 	ImGui::DragInt("Tile", &m_selectedTile, 0.01f, 0, 9);
+}
+
+void WorldEditor::debugUISpecial()
+{
+	ImGui::Begin("World Editor", &m_isActive);
+
+	ImGui::End();
 }
 
 Component* WorldEditor::clone() const

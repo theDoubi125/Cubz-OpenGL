@@ -1,18 +1,15 @@
-// Version du GLSL
-
 #version 150 core
 
-
-// Sortie Shader
+uniform vec3 lightDir;
+uniform vec3 cubeColor;
 
 in vec2 texCoord;
-out vec4 out_Color;
+in vec3 normal;
 
-// Fonction main
+out vec4 out_Color;
 
 void main()
 {
-    // Couleur finale du pixel
-
+	float ratio = dot(normalize(lightDir), normalize(normal));
     out_Color = vec4(0, 0, 1.0, 0.5f);
 }

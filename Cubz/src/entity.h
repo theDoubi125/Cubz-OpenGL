@@ -20,6 +20,7 @@ public:
 	void render() const;
 
 	void debugUI();
+	void debugUISpecial();
 
 	const std::string& getName() const;
 

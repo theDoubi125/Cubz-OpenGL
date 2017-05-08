@@ -19,7 +19,7 @@ public:
 class RollState : State<CubeComponent>
 {
 public:
-	RollState(CubeComponent* entity, vec3 rotationCenter, quat rotation, float speed);
+	RollState(CubeComponent* entity, vec3 rotationCenter, quat rotation, float speed, ivec2 inputDir);
 
 	virtual void onExitState() override;
 	virtual void update(float deltaTime) override;
@@ -30,6 +30,9 @@ private:
 	vec3 m_startPosition;
 	quat m_rotation;
 	quat m_startRotation;
+	ivec2 m_inputDir;
+
+	bool m_isReversed;
 };
 
 class FallState : State<CubeComponent>
