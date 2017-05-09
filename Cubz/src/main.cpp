@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 
 	double lastFrameTime = glfwGetTime();
 
-	Window* window = new Window("Cubz", ivec2(800, 600));
+	Window* window = new Window("Cubz", ivec2(1800, 1080));
 	window->open();
 
 

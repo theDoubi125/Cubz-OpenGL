@@ -3,6 +3,7 @@
 #include "camera.h"
 #include "entity.h"
 #include <glm/gtc/matrix_transform.hpp>
+#include "window.h"
 
 Camera* Camera::m_activeCamera = NULL;
 
@@ -38,7 +39,9 @@ const mat4& Camera::getViewMatrix() const
 
 const mat4& Camera::getProjectionMatrix() const
 {
-	return perspective(70.0, (double)800 / 600, 0.1, 100.0);
+	const Window* window = Window::getCurrentWindow();
+	ivec2 windowSize = window->getSize();
+	return perspective(70.0, (double)windowSize.x/windowSize.y, 0.1, 100.0);
 }
 
 void Camera::activate()

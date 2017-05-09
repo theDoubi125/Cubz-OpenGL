@@ -85,6 +85,7 @@ void Window::update(float deltaTime)
 	{
 		m_scene->debugUI();
 	}
+	m_scene->debugUISpecial();
 		
 	if (glfwWindowShouldClose(m_window))
 		close();
@@ -159,4 +160,11 @@ void Window::render()
 GLFWwindow* Window::glwfWindow() const
 {
 	return m_window;
+}
+
+ivec2 Window::getSize() const
+{
+	ivec2 size;
+	glfwGetWindowSize(m_window, &size.x, &size.y);
+	return size;
 }

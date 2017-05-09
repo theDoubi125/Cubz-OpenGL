@@ -61,9 +61,13 @@ void WorldEditor::debugUI()
 
 void WorldEditor::debugUISpecial()
 {
-	ImGui::Begin("World Editor", &m_isActive);
+	if (m_isUIVisible)
+	{
+		ImGui::Begin("World Editor", &m_isUIVisible);
+		ImGui::DragInt("Tile", &m_selectedTile, 0.01f, 0, 9);
 
-	ImGui::End();
+		ImGui::End();
+	}
 }
 
 Component* WorldEditor::clone() const
@@ -88,16 +92,14 @@ void WorldEditor::onKeyPressed(int key)
 {
 	if (key == GLFW_KEY_F)
 	{
-		m_entity->getScene().setGamePaused(true);
+		m_isUIVisible = !m_isUIVisible;
+		m_entity->getScene().setGamePaused(m_isUIVisible);
 	}
 }
 
 void WorldEditor::onKeyReleased(int key)
 {
-	if (key == GLFW_KEY_F)
-	{
-		m_entity->getScene().setGamePaused(false);
-	}
+
 }
 
 void WorldEditor::onMouseWheel(int wheel)

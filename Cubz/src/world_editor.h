@@ -36,5 +36,5 @@ private:
 	Transform m_cursorTransform;
 	WorldComponent* m_world;
 	bool m_mousePressed;
-	bool m_isActive;
+	bool m_isUIVisible;
 };

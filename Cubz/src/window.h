@@ -29,6 +29,8 @@ public:
 
 	static const Window* getCurrentWindow();
 
+	ivec2 getSize() const;
+
 private:
 	GLFWwindow *m_window;
 	ivec2 m_size;

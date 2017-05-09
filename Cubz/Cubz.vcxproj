@@ -126,6 +126,7 @@
     <ClCompile Include="src\cube.cpp" />
     <ClCompile Include="src\cube_states.cpp" />
     <ClCompile Include="src\entity.cpp" />
+    <ClCompile Include="src\frame_buffer.cpp" />
     <ClCompile Include="src\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="src\input.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="src\cube_states.h" />
     <ClInclude Include="src\entity.h" />
     <ClInclude Include="src\factory.h" />
+    <ClInclude Include="src\frame_buffer.h" />
     <ClInclude Include="src\imgui_impl_glfw_gl3.h" />
     <ClInclude Include="src\input.h" />
     <ClInclude Include="src\mesh.h" />

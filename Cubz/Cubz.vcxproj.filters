@@ -52,6 +52,9 @@
     <ClCompile Include="src\cube_states.cpp">
       <Filter>src\entity\component\cube</Filter>
     </ClCompile>
+    <ClCompile Include="src\frame_buffer.cpp">
+      <Filter>src\graphic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\entity.h">
@@ -111,6 +114,9 @@
     </ClInclude>
     <ClInclude Include="src\cube_states.h">
       <Filter>src\entity\component\cube</Filter>
+    </ClInclude>
+    <ClInclude Include="src\frame_buffer.h">
+      <Filter>src\graphic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

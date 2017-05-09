@@ -18,6 +18,7 @@ public:
 	void start();
 	void update(float deltaTime);
 	void debugUI();
+	void debugUISpecial();
 
 	void addEntity(Entity* entity);
 	void removeEntity(Entity* entity);

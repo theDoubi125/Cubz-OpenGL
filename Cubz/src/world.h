@@ -21,7 +21,7 @@ public:
 	~World();
 
 	int getTile(ivec3 cell, bool checkBounds = true) const;
-	void setTile(ivec3 cell, int id);
+	void setTile(ivec3 cell, int id, bool checkBounds = true);
 	ivec3 getSize() const;
 	bool isInBound(ivec3 cell) const;
 

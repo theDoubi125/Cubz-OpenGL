@@ -15,8 +15,10 @@ World::~World()
 	delete m_data;
 }
 
-void World::setTile(ivec3 pos, int value)
+void World::setTile(ivec3 pos, int value, bool checkBounds)
 {
+	if (checkBounds && !isInBound(pos))
+		return;
 	int id = pos.x + pos.y * m_size.x + pos.z * m_size.x * m_size.y;
 	m_data[id] = value;
 }
