@@ -21,6 +21,8 @@ public:
 	void setData(int partId, Shader* shader, int vertexCount, float* vertex, float* uv, float* normals, GLuint drawType = GL_STATIC_DRAW);
 	void render(mat4 transformMatrix, vec3 lightDir) const;
 	void render(mat4 transformMatrix, int partId) const;
+	void renderFinal() const;
+
 	int getPartCount() const;
 
 	void bindShader(int partId) const;

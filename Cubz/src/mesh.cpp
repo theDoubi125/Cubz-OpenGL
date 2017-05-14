@@ -93,6 +93,17 @@ void Mesh::render(mat4 transformMatrix, int partId) const
 	glBindVertexArray(0);
 }
 
+void Mesh::renderFinal() const
+{
+	for (int i = 0; i < m_partCount; i++)
+	{
+		glUseProgram(m_shaders[i]->getProgramId());
+		glBindVertexArray(m_vaos[i]);
+		glDrawArrays(GL_TRIANGLES, 0, m_vertexCount[i]);
+		glBindVertexArray(0);
+	}
+}
+
 int Mesh::getPartCount() const
 {
 	return m_partCount;

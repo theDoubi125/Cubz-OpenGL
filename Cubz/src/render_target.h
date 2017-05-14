@@ -7,10 +7,13 @@ class Entity;
 class RenderTarget
 {
 public:
-	RenderTarget(ivec2 size);
+	RenderTarget();
 	~RenderTarget();
 
-	void renderEntities(const std::vector<Entity*>& entities);
+	void init(ivec2 size);
+	void renderEntities(const std::vector<Entity*>& entities) const;
+
+	GLuint getTargetTexture() const;
 
 private:
 	GLuint m_frameBuffer;

@@ -5,8 +5,11 @@
 #include <glm/vec2.hpp>
 #include <glm\mat4x4.hpp>
 #include <json.hpp>
+#include "render_target.h"
+#include "image_effect.h"
 
 class Entity;
+class Mesh;
 
 class Scene
 {
@@ -36,6 +39,9 @@ private:
 	std::map<std::string, Entity*> m_entitiesByName;
 
 	bool m_paused;
+	RenderTarget m_renderTarget;
+
+	ImageEffect* m_imageEffect;
 };
 
 #endif SCENE_HEADER

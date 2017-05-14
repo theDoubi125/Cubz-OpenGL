@@ -52,7 +52,10 @@
     <ClCompile Include="src\cube_states.cpp">
       <Filter>src\entity\component\cube</Filter>
     </ClCompile>
-    <ClCompile Include="src\frame_buffer.cpp">
+    <ClCompile Include="src\render_target.cpp">
+      <Filter>src\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\image_effect.cpp">
       <Filter>src\graphic</Filter>
     </ClCompile>
   </ItemGroup>
@@ -115,7 +118,10 @@
     <ClInclude Include="src\cube_states.h">
       <Filter>src\entity\component\cube</Filter>
     </ClInclude>
-    <ClInclude Include="src\frame_buffer.h">
+    <ClInclude Include="src\render_target.h">
+      <Filter>src\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\image_effect.h">
       <Filter>src\graphic</Filter>
     </ClInclude>
   </ItemGroup>
@@ -161,12 +167,6 @@
     <None Include="resources\configs\scenes\debugScene.json">
       <Filter>resources</Filter>
     </None>
-    <None Include="resources\shaders\shader_base.frag">
-      <Filter>resources</Filter>
-    </None>
-    <None Include="resources\shaders\shader_base.vert">
-      <Filter>resources</Filter>
-    </None>
     <None Include="resources\shaders\cube.frag">
       <Filter>resources</Filter>
     </None>
@@ -180,6 +180,12 @@
       <Filter>resources</Filter>
     </None>
     <None Include="resources\shaders\basicLit.frag">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\shaders\finalRender.frag">
+      <Filter>resources</Filter>
+    </None>
+    <None Include="resources\shaders\finalRender.vert">
       <Filter>resources</Filter>
     </None>
   </ItemGroup>

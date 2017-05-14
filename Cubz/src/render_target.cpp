@@ -3,10 +3,17 @@
 #include <glm/gtc/type_ptr.hpp>
 #include "entity.h"
 
-#include "frame_buffer.h"
+#include "render_target.h"
 
-RenderTarget::RenderTarget(ivec2 size) : m_size(size)
+RenderTarget::RenderTarget()
 {
+	
+}
+
+void RenderTarget::init(ivec2 size)
+{
+	m_size = size;
+
 	glGenTextures(1, &m_targetTexture);
 	glBindTexture(GL_TEXTURE_2D, m_targetTexture);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -32,7 +39,7 @@ RenderTarget::~RenderTarget()
 	glDeleteTextures(1, &m_targetTexture);
 }
 
-void RenderTarget::renderEntities(const std::vector<Entity*>& entities)
+void RenderTarget::renderEntities(const std::vector<Entity*>& entities) const
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, m_frameBuffer);
 	for (int i = 0; i < entities.size(); i++)
@@ -40,4 +47,9 @@ void RenderTarget::renderEntities(const std::vector<Entity*>& entities)
 		entities.at(i)->render();
 	}
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+GLuint RenderTarget::getTargetTexture() const
+{
+	return m_targetTexture;
 }
