@@ -162,31 +162,40 @@
     <Filter Include="src\editor">
       <UniqueIdentifier>{0a9f24a0-4741-41e9-9af8-e7f3dcff1ee0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="resources\shaders">
+      <UniqueIdentifier>{4f29cfea-7ec4-4dd9-a46a-e572bd09ac1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources\shaders\materials">
+      <UniqueIdentifier>{8e9c1a44-f705-4072-b28f-1227eb578d41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resources\shaders\effects">
+      <UniqueIdentifier>{e59c426f-d52b-4a79-9959-d121b8aecfd1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\configs\scenes\debugScene.json">
       <Filter>resources</Filter>
     </None>
-    <None Include="resources\shaders\cube.frag">
-      <Filter>resources</Filter>
-    </None>
-    <None Include="resources\shaders\cube.vert">
-      <Filter>resources</Filter>
-    </None>
-    <None Include="resources\shaders\cursor.frag">
-      <Filter>resources</Filter>
+    <None Include="resources\shaders\basicLit.frag">
+      <Filter>resources\shaders\materials</Filter>
     </None>
     <None Include="resources\shaders\basicLit.vert">
-      <Filter>resources</Filter>
+      <Filter>resources\shaders\materials</Filter>
     </None>
-    <None Include="resources\shaders\basicLit.frag">
-      <Filter>resources</Filter>
+    <None Include="resources\shaders\cube.frag">
+      <Filter>resources\shaders\materials</Filter>
+    </None>
+    <None Include="resources\shaders\cube.vert">
+      <Filter>resources\shaders\materials</Filter>
+    </None>
+    <None Include="resources\shaders\cursor.frag">
+      <Filter>resources\shaders\materials</Filter>
     </None>
     <None Include="resources\shaders\finalRender.frag">
-      <Filter>resources</Filter>
+      <Filter>resources\shaders\effects</Filter>
     </None>
     <None Include="resources\shaders\finalRender.vert">
-      <Filter>resources</Filter>
+      <Filter>resources\shaders\effects</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

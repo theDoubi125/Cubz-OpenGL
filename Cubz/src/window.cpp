@@ -51,6 +51,7 @@ void Window::open()
 	{
 		std::cout << "glad load failed" << std::endl;
 	}
+	m_currentWindow = this;
 
 	Entity::registerComponents();
 	MeshRenderer::registerMeshes();

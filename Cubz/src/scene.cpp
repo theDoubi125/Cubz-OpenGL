@@ -10,6 +10,7 @@
 #include "scene.h"
 #include "entity.h"
 #include "mesh.h"
+#include "window.h"
 
 Scene::Scene()
 {
@@ -32,7 +33,8 @@ void Scene::init(json descr)
 		entity->init(*it);
 		addEntity(entity);
 	}
-	m_renderTarget.init(ivec2(800, 600));
+	const Window* window = Window::getCurrentWindow();
+	m_renderTarget.init(window->getSize());
 	m_imageEffect = new ImageEffect();
 	m_imageEffect->init();
 }
@@ -99,7 +101,6 @@ void Scene::render() const
 	glEnable(GL_DEPTH_TEST);
 	m_renderTarget.renderEntities(m_entities);
 	
-	//m_finalRenderMesh->renderFinal();
 	m_imageEffect->render(m_renderTarget.getTargetTexture());
 }
 

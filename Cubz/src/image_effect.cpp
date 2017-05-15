@@ -20,7 +20,7 @@ void ImageEffect::init()
 	glGenBuffers(1, &m_vbo);
 	glGenVertexArrays(1, &m_vao);
 
-	float data[]{ 0, 0,  1, 1,  1, 0,  0, 0,  0, 1,  1, 1 };
+	float data[]{ -1, -1,  1, 1,  1, -1,  -1, -1,  -1, 1,  1, 1 };
 
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 		glBufferData(GL_ARRAY_BUFFER, 12 * sizeof(float), data, GL_STATIC_DRAW);
@@ -40,7 +40,9 @@ void ImageEffect::init()
 void ImageEffect::render(GLuint textureId) const
 {
 	glEnable(GL_TEXTURE_2D);
+	glDisable(GL_DEPTH_TEST);
 	glUseProgram(m_shader->getProgramId());
+	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, textureId);
 	glBindVertexArray(m_vao);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
